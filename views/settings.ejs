@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><%- include('partials/head') %></head>
+<body>
+  <%- include('partials/nav') %>
+  <div class="container">
+    <h1>Settings</h1>
+    <% if (message) { %><div class="alert alert-success"><%= message %></div><% } %>
+    <% if (error) { %><div class="alert alert-error"><%= error %></div><% } %>
+
+    <div class="settings-section card">
+      <h2>Exam & collection period</h2>
+      <form method="POST" action="/settings/general">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        <div class="form-grid">
+          <div class="field-group full">
+            <label for="exam_name">Exam / list name</label>
+            <input type="text" id="exam_name" name="exam_name" value="<%= examName %>" />
+          </div>
+          <div class="field-group">
+            <label for="collection_start">Collection period start</label>
+            <input type="date" id="collection_start" name="collection_start" value="<%= collectionStart %>" />
+          </div>
+          <div class="field-group">
+            <label for="collection_end">Collection period end</label>
+            <input type="date" id="collection_end" name="collection_end" value="<%= collectionEnd %>" />
+          </div>
+        </div>
+        <div class="actions"><button type="submit" class="btn">Save</button></div>
+      </form>
+    </div>
+
+    <div class="settings-section card">
+      <h2>Change access PIN</h2>
+      <p class="small muted">Choose a PIN only you know. It is stored as a bcrypt hash, never in plain text.</p>
+      <form method="POST" action="/settings/pin">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        <div class="form-grid">
+          <div class="field-group">
+            <label for="current_pin">Current PIN</label>
+            <input type="password" id="current_pin" name="current_pin" inputmode="numeric" required />
+          </div>
+          <div class="field-group"></div>
+          <div class="field-group">
+            <label for="new_pin">New PIN</label>
+            <input type="password" id="new_pin" name="new_pin" inputmode="numeric" minlength="4" required />
+          </div>
+          <div class="field-group">
+            <label for="confirm_pin">Confirm new PIN</label>
+            <input type="password" id="confirm_pin" name="confirm_pin" inputmode="numeric" minlength="4" required />
+          </div>
+        </div>
+        <div class="actions"><button type="submit" class="btn">Update PIN</button></div>
+      </form>
+    </div>
+
+    <div class="settings-section card">
+      <h2>Categories & minimums</h2>
+      <p class="small muted">ABOG publishes exact minimum counts per category in its yearly Certifying Exam Bulletin — set them here to match your bulletin.</p>
+      <table>
+        <thead><tr><th>Section</th><th>Category</th><th>Minimum</th><th></th></tr></thead>
+        <tbody>
+          <% categories.forEach(function(cat) { %>
+          <tr>
+            <td><%= cat.section %></td>
+            <td><%= cat.name %></td>
+            <td>
+              <form method="POST" action="/settings/categories/<%= cat.id %>" class="inline-form">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                <input type="number" name="minimum_count" value="<%= cat.minimum_count %>" min="0" style="width:80px; display:inline-block;" />
+                <button type="submit" class="btn-small btn-secondary">Save</button>
+              </form>
+            </td>
+            <td>
+              <form method="POST" action="/settings/categories/<%= cat.id %>/delete" class="inline-form"
+                    onsubmit="return confirm('Delete this category?');">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                <button type="submit" class="btn-small btn-danger">Remove</button>
+              </form>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+
+      <h3 style="margin-top:22px;">Add a category</h3>
+      <form method="POST" action="/settings/categories">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        <div class="form-grid">
+          <div class="field-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="field-group">
+            <label for="section">Section</label>
+            <input type="text" id="section" name="section" placeholder="Obstetrics / Gynecology / Other" />
+          </div>
+          <div class="field-group">
+            <label for="minimum_count">Minimum</label>
+            <input type="number" id="minimum_count" name="minimum_count" min="0" value="0" />
+          </div>
+        </div>
+        <div class="actions"><button type="submit" class="btn">Add category</button></div>
+      </form>
+    </div>
+
+    <div class="settings-section card">
+      <h2>Privacy & security</h2>
+      <ul class="small">
+        <li>This tool is designed to hold <strong>de-identified</strong> case information only — the format ABOG itself requires. Avoid entering patient names, MRNs, full dates of birth, phone numbers, or addresses.</li>
+        <li>New cases are screened for text that looks like an identifier before saving.</li>
+        <li>Sessions automatically sign out after 20 minutes of inactivity.</li>
+        <li>Every login, case change, and export is written to an internal audit log.</li>
+      </ul>
+      <p class="small"><a href="https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act" target="_blank" rel="noopener">More on HIPAA</a> · see <code>docs/HIPAA-COMPLIANCE.md</code> in the project repository for the full write-up.</p>
+    </div>
+  </div>
+</body>
+</html>

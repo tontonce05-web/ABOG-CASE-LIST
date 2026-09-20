@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><%- include('partials/head') %></head>
+<body>
+  <div class="login-wrap">
+    <div class="card">
+      <h1>ABOG Case List</h1>
+      <p class="subtitle">Enter your PIN to continue</p>
+      <% if (error) { %><div class="alert alert-error"><%= error %></div><% } %>
+      <form method="POST" action="/login">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        <div class="field-group">
+          <input type="password" name="pin" inputmode="numeric" pattern="[0-9]*" maxlength="8"
+                 class="pin-input" autofocus required autocomplete="off" />
+        </div>
+        <button type="submit" class="btn" style="width:100%">Unlock</button>
+      </form>
+    </div>
+    <p class="small muted" style="text-align:center; margin-top:14px;">Private access only. This tool stores de-identified case data for ABOG exam preparation.</p>
+  </div>
+</body>
+</html>

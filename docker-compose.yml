@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    expose:
+      - "3000"
+    environment:
+      - SESSION_SECRET=${SESSION_SECRET:-dev-secret-change-me}
+      - TRUST_PROXY=false
+      - COOKIE_SECURE=false
+      - DATA_DIR=/app/data
+    volumes:
+      - abog_data:/app/data
+
+volumes:
+  abog_data:

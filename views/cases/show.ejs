@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><%- include('../partials/head') %></head>
+<body>
+  <%- include('../partials/nav') %>
+  <div class="container">
+    <div class="section-header">
+      <h1>Case #<%= caseItem.id %></h1>
+      <div>
+        <a href="/cases/<%= caseItem.id %>/edit" class="btn-small btn-secondary">Edit</a>
+        <form method="POST" action="/cases/<%= caseItem.id %>/delete" class="inline-form"
+              onsubmit="return confirm('Delete this case? This cannot be undone.');">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+          <button type="submit" class="btn-small btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="card">
+      <table>
+        <tr><th>Category</th><td><%= caseItem.category_name || '—' %></td></tr>
+        <tr><th>Date of service</th><td><%= caseItem.date_of_service || '—' %></td></tr>
+        <tr><th>Patient initials</th><td><%= caseItem.patient_initials || '—' %></td></tr>
+        <tr><th>Patient reference</th><td><%= caseItem.patient_ref || '—' %></td></tr>
+        <tr><th>Age</th><td><%= caseItem.age || '—' %></td></tr>
+        <tr><th>Gender</th><td><%= caseItem.gender || '—' %></td></tr>
+        <tr><th>Setting</th><td><%= caseItem.setting || '—' %></td></tr>
+        <tr><th>Role</th><td><%= caseItem.role || '—' %></td></tr>
+        <tr><th>Gestational age</th><td><%= caseItem.gestational_age || '—' %></td></tr>
+        <tr><th>Delivery type</th><td><%= caseItem.delivery_type || '—' %></td></tr>
+        <tr><th>Diagnosis</th><td><%= [caseItem.diagnosis_code, caseItem.diagnosis_text].filter(Boolean).join(' — ') || '—' %></td></tr>
+        <tr><th>Procedure</th><td><%= [caseItem.procedure_code, caseItem.procedure_text].filter(Boolean).join(' — ') || '—' %></td></tr>
+        <tr><th>Complications</th><td><%= caseItem.complications || '—' %></td></tr>
+        <tr><th>Notes</th><td><%= caseItem.notes || '—' %></td></tr>
+        <% if (caseItem.source_note) { %>
+        <tr><th>Original note (kept)</th><td class="small muted"><%= caseItem.source_note %></td></tr>
+        <% } %>
+      </table>
+    </div>
+    <a href="/cases" class="small">← Back to case list</a>
+  </div>
+</body>
+</html>

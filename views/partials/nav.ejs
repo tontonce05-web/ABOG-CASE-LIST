@@ -1,0 +1,18 @@
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">ABOG Case List</a>
+    <% if (locals.authenticated) { %>
+    <nav class="nav-links">
+      <a href="/">Dashboard</a>
+      <a href="/cases">Cases</a>
+      <a href="/cases/new" class="btn-small">+ Add Case</a>
+      <a href="/cases/export.csv">Export CSV</a>
+      <a href="/settings">Settings</a>
+      <form method="POST" action="/logout" class="inline-form">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        <button type="submit" class="link-button">Sign out</button>
+      </form>
+    </nav>
+    <% } %>
+  </div>
+</header>

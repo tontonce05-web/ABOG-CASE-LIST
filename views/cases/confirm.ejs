@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><%- include('../partials/head') %></head>
+<body>
+  <%- include('../partials/nav') %>
+  <div class="container">
+    <h1>Possible identifying information detected</h1>
+    <div class="card">
+      <div class="alert alert-error">
+        <p><strong>Before saving, double-check these fields.</strong> ABOG requires a de-identified case list, and this app is not meant to store protected health information (names, SSNs, phone numbers, MRNs, addresses, etc). This is a heuristic check and can be wrong — but please confirm you've reviewed it.</p>
+      </div>
+      <ul class="suggestion-list">
+        <% warnings.forEach(function(w) { %>
+          <li><strong><%= w.field %>:</strong> looks like it might contain a <%= w.reason %>.</li>
+        <% }); %>
+      </ul>
+
+      <form method="POST" action="<%= formAction %>" style="margin-top:20px;">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        <input type="hidden" name="phi_confirmed" value="1" />
+        <% Object.keys(body).forEach(function(key) { if (key !== '_csrf' && key !== 'phi_confirmed') { %>
+          <input type="hidden" name="<%= key %>" value="<%= body[key] %>" />
+        <% } }); %>
+        <div class="actions">
+          <button type="submit" class="btn btn-danger">I've reviewed it — save anyway</button>
+          <a href="javascript:history.back()" class="btn btn-secondary">Go back and edit</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

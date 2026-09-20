@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><%- include('../partials/head') %></head>
+<body>
+  <%- include('../partials/nav') %>
+  <div class="container">
+    <h1><%= title %></h1>
+
+    <% var isEdit = caseItem && caseItem.id; %>
+
+    <% if (!isEdit) { %>
+    <div class="note-box">
+      <h3>Quick add from a note</h3>
+      <p class="small muted">Paste a de-identified snippet of your note below and click Parse. It will suggest values for the fields below — review and correct them before saving. The note text itself is discarded unless you check "keep note" after parsing.</p>
+      <form method="POST" action="/cases/parse">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        <div class="field-group">
+          <textarea name="source_note" rows="4" placeholder="e.g. 34 y/o G2P1 at 39w2d, primary low transverse cesarean section for arrest of dilation, attending surgeon, no complications..."><%= sourceNote %></textarea>
+        </div>
+        <button type="submit" class="btn-secondary">Parse note</button>
+      </form>
+      <% if (parsed) { %>
+        <p class="small" style="margin-top:10px;"><strong>Suggested:</strong></p>
+        <ul class="suggestion-list">
+          <% Object.keys(parsed).forEach(function(k) { if (parsed[k]) { %>
+            <li><%= k %>: <%= parsed[k] %></li>
+          <% } }); %>
+        </ul>
+      <% } %>
+    </div>
+    <% } %>
+
+    <form method="POST" action="<%= isEdit ? '/cases/' + caseItem.id : '/cases' %>" class="card">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+
+      <div class="form-grid">
+        <div class="field-group">
+          <label for="category_id">Category</label>
+          <select id="category_id" name="category_id" required>
+            <option value="">Select a category...</option>
+            <% categories.forEach(function(cat) { %>
+              <option value="<%= cat.id %>" <%= String(caseItem.category_id) === String(cat.id) ? 'selected' : '' %>><%= cat.section %> — <%= cat.name %></option>
+            <% }); %>
+          </select>
+        </div>
+        <div class="field-group">
+          <label for="date_of_service">Date of service</label>
+          <input type="date" id="date_of_service" name="date_of_service" value="<%= caseItem.date_of_service || '' %>" />
+        </div>
+
+        <div class="field-group">
+          <label for="patient_initials">Patient initials</label>
+          <input type="text" id="patient_initials" name="patient_initials" maxlength="5" value="<%= caseItem.patient_initials || '' %>" placeholder="e.g. J.D." />
+        </div>
+        <div class="field-group">
+          <label for="patient_ref">De-identified patient reference</label>
+          <input type="text" id="patient_ref" name="patient_ref" value="<%= caseItem.patient_ref || '' %>" placeholder="internal tracking # only — no MRN" />
+        </div>
+
+        <div class="field-group">
+          <label for="age">Age</label>
+          <input type="number" id="age" name="age" min="0" max="120" value="<%= caseItem.age || '' %>" />
+        </div>
+        <div class="field-group">
+          <label for="gender">Gender</label>
+          <select id="gender" name="gender">
+            <option value="">—</option>
+            <option value="Female" <%= caseItem.gender === 'Female' ? 'selected' : '' %>>Female</option>
+            <option value="Male" <%= caseItem.gender === 'Male' ? 'selected' : '' %>>Male</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label for="setting">Setting</label>
+          <select id="setting" name="setting">
+            <option value="">—</option>
+            <% ['Inpatient','Outpatient','Short-Stay'].forEach(function(s) { %>
+              <option value="<%= s %>" <%= caseItem.setting === s ? 'selected' : '' %>><%= s %></option>
+            <% }); %>
+          </select>
+        </div>
+        <div class="field-group">
+          <label for="role">Role</label>
+          <select id="role" name="role">
+            <option value="">—</option>
+            <% ['Primary Surgeon','First Assistant','Supervised Resident','Attending / Supervising Surgeon'].forEach(function(r) { %>
+              <option value="<%= r %>" <%= caseItem.role === r ? 'selected' : '' %>><%= r %></option>
+            <% }); %>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label for="gestational_age">Gestational age (if OB)</label>
+          <input type="text" id="gestational_age" name="gestational_age" placeholder="e.g. 39w2d" value="<%= caseItem.gestational_age || '' %>" />
+        </div>
+        <div class="field-group">
+          <label for="delivery_type">Delivery type (if applicable)</label>
+          <select id="delivery_type" name="delivery_type">
+            <option value="">—</option>
+            <% ['Spontaneous Vaginal','Operative Vaginal (Forceps)','Operative Vaginal (Vacuum)','Cesarean — Primary','Cesarean — Repeat','VBAC'].forEach(function(d) { %>
+              <option value="<%= d %>" <%= caseItem.delivery_type === d ? 'selected' : '' %>><%= d %></option>
+            <% }); %>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label for="diagnosis_code">Diagnosis code (ICD-10)</label>
+          <input type="text" id="diagnosis_code" name="diagnosis_code" value="<%= caseItem.diagnosis_code || '' %>" />
+        </div>
+        <div class="field-group">
+          <label for="diagnosis_text">Diagnosis description</label>
+          <input type="text" id="diagnosis_text" name="diagnosis_text" value="<%= caseItem.diagnosis_text || '' %>" />
+        </div>
+
+        <div class="field-group">
+          <label for="procedure_code">Procedure code (CPT)</label>
+          <input type="text" id="procedure_code" name="procedure_code" value="<%= caseItem.procedure_code || '' %>" />
+        </div>
+        <div class="field-group">
+          <label for="procedure_text">Procedure description</label>
+          <input type="text" id="procedure_text" name="procedure_text" value="<%= caseItem.procedure_text || '' %>" />
+        </div>
+
+        <div class="field-group full">
+          <label for="complications">Complications</label>
+          <input type="text" id="complications" name="complications" value="<%= caseItem.complications || '' %>" />
+        </div>
+        <div class="field-group full">
+          <label for="notes">Notes</label>
+          <textarea id="notes" name="notes" rows="3"><%= caseItem.notes || '' %></textarea>
+        </div>
+
+        <% if (sourceNote) { %>
+        <div class="field-group full">
+          <label style="display:flex; align-items:center; gap:8px; font-weight:400;">
+            <input type="checkbox" name="keep_source_note" style="width:auto;" />
+            Keep the original pasted note attached to this case (may contain identifiable text — leave unchecked to discard it)
+          </label>
+          <textarea name="source_note" rows="3" style="display:none"><%= sourceNote %></textarea>
+        </div>
+        <% } %>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn">Save case</button>
+        <a href="<%= isEdit ? '/cases/' + caseItem.id : '/cases' %>" class="btn btn-secondary">Cancel</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
