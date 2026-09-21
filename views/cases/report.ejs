@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><%- include('../partials/head') %></head>
+<body>
+  <%- include('../partials/nav') %>
+  <div class="container">
+    <div class="section-header">
+      <h1>List of <%= section === 'Office Practice' ? 'Office' : section === 'Gynecology' ? 'Gynecologic' : 'Obstetrical' %> Patients</h1>
+      <a href="/cases/export.csv" class="small">Export full CSV →</a>
+    </div>
+    <p class="small muted">Laid out to match ABOG's own case list format for this section. <%= rows.length %> patient<%= rows.length === 1 ? '' : 's' %> listed, oldest first.</p>
+
+    <div class="card" style="overflow-x:auto;">
+      <% if (rows.length === 0) { %>
+        <div class="empty-state">
+          <p>No <%= section %> cases yet.</p>
+          <a href="/cases/new" class="btn">Add a case</a>
+        </div>
+      <% } else if (section === 'Office Practice') { %>
+      <table class="report-table">
+        <thead>
+          <tr>
+            <th>#</th><th>Age</th><th>G</th><th>P</th><th>Problem</th>
+            <th>Diagnostic Procedures</th><th>Treatment</th><th>Results</th><th>No. of Visits</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% rows.forEach(function(r) { %>
+          <tr>
+            <td><a href="/cases/<%= r.id %>"><%= r.rowNumber %></a></td>
+            <td><%= r.age ?? '—' %></td>
+            <td><%= r.gravida ?? '—' %></td>
+            <td><%= r.para ?? '—' %></td>
+            <td><%= r.diagnosis_text || r.category_name || '—' %></td>
+            <td><%= r.diagnostic_procedures || '—' %></td>
+            <td><%= r.treatment || '—' %></td>
+            <td><%= r.results || '—' %></td>
+            <td><%= r.visit_count ?? '—' %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <% } else if (section === 'Gynecology') { %>
+      <table class="report-table">
+        <thead>
+          <tr>
+            <th>#</th><th>Age</th><th>G</th><th>P</th>
+            <th>Diagnosis Preoperative or Admission</th><th>Treatment</th>
+            <th>Surgical Pathology Diagnosis (Uterine weight in gms)</th>
+            <th>Complications</th><th>Days in Hospital</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% rows.forEach(function(r) { %>
+          <tr>
+            <td><a href="/cases/<%= r.id %>"><%= r.rowNumber %></a></td>
+            <td><%= r.age ?? '—' %></td>
+            <td><%= r.gravida ?? '—' %></td>
+            <td><%= r.para ?? '—' %></td>
+            <td><%= r.diagnosis_text || r.category_name || '—' %></td>
+            <td><%= [r.procedure_text, r.treatment].filter(Boolean).join('; ') || '—' %></td>
+            <td><%= [r.surgical_pathology_diagnosis, r.uterine_weight_g ? r.uterine_weight_g + 'g' : null].filter(Boolean).join(' — ') || '—' %></td>
+            <td><%= r.complications || '—' %></td>
+            <td><%= r.days_in_hospital ?? '—' %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <% } else { %>
+      <table class="report-table">
+        <thead>
+          <tr>
+            <th rowspan="2">#</th><th rowspan="2">Age</th><th rowspan="2">G</th><th rowspan="2">P</th><th rowspan="2">Gest Age</th>
+            <th colspan="2">Complications</th>
+            <th rowspan="2">Operative Procedures and/or Treatment</th>
+            <th rowspan="2">Days in Hospital</th>
+            <th rowspan="2">Perinatal Death</th>
+            <th colspan="3">Newborn</th>
+          </tr>
+          <tr>
+            <th>Antepartum</th><th>Delivery or Postpartum</th>
+            <th>Weight</th><th>APGAR 1 &amp; 5 Min</th><th>Days in Hospital</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% rows.forEach(function(r) { %>
+          <tr>
+            <td><a href="/cases/<%= r.id %>"><%= r.rowNumber %></a></td>
+            <td><%= r.age ?? '—' %></td>
+            <td><%= r.gravida ?? '—' %></td>
+            <td><%= r.para ?? '—' %></td>
+            <td><%= r.gestational_age || '—' %></td>
+            <td><%= r.complications_antepartum || '—' %></td>
+            <td><%= r.complications_delivery_postpartum || '—' %></td>
+            <td><%= [r.procedure_text, r.delivery_type].filter(Boolean).join('; ') || '—' %></td>
+            <td><%= r.days_in_hospital ?? '—' %></td>
+            <td><%= r.perinatal_death || 'No' %></td>
+            <td><%= r.newborn_weight || '—' %></td>
+            <td><%= r.newborn_apgar || '—' %></td>
+            <td><%= r.newborn_days_in_hospital || '—' %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <% } %>
+    </div>
+    <a href="/cases" class="small">← Back to case list</a>
+  </div>
+</body>
+</html>

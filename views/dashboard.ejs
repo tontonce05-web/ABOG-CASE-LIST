@@ -10,9 +10,12 @@
     <% bySection.forEach(function(group) { %>
       <div class="section-header">
         <h2><%= group.section %></h2>
-        <% if (group.minimum) { %>
-          <span class="count"><%= group.effectiveCount %> / <%= group.minimum %> counted<%= group.met ? ' — minimum met' : '' %></span>
-        <% } %>
+        <span style="display:flex; align-items:center; gap:14px;">
+          <a href="/cases/report/<%= encodeURIComponent(group.section) %>" class="small">View as ABOG list →</a>
+          <% if (group.minimum) { %>
+            <span class="count"><%= group.effectiveCount %> / <%= group.minimum %> counted<%= group.met ? ' — minimum met' : '' %></span>
+          <% } %>
+        </span>
       </div>
       <% if (group.minimum) { %>
         <div class="progress-bar" style="margin-bottom:10px;">

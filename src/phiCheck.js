@@ -21,6 +21,8 @@ const CHECKS = [
 const FIELDS_TO_SCAN = [
   'patient_initials', 'patient_ref', 'diagnosis_text', 'procedure_text',
   'complications', 'notes', 'source_note',
+  'diagnostic_procedures', 'treatment', 'results', 'surgical_pathology_diagnosis',
+  'complications_antepartum', 'complications_delivery_postpartum',
 ];
 
 function scanFields(data) {

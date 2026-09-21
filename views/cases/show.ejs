@@ -23,14 +23,45 @@
         <tr><th>Patient initials</th><td><%= caseItem.patient_initials || '—' %></td></tr>
         <tr><th>Patient reference</th><td><%= caseItem.patient_ref || '—' %></td></tr>
         <tr><th>Age</th><td><%= caseItem.age || '—' %></td></tr>
+        <tr><th>G / P</th><td><%= (caseItem.gravida ?? '—') %> / <%= (caseItem.para ?? '—') %></td></tr>
         <tr><th>Gender</th><td><%= caseItem.gender || '—' %></td></tr>
         <tr><th>Setting</th><td><%= caseItem.setting || '—' %></td></tr>
         <tr><th>Role</th><td><%= caseItem.role || '—' %></td></tr>
+
+        <% if (caseItem.section === 'Obstetrics') { %>
         <tr><th>Gestational age</th><td><%= caseItem.gestational_age || '—' %></td></tr>
         <tr><th>Delivery type</th><td><%= caseItem.delivery_type || '—' %></td></tr>
         <tr><th>Diagnosis</th><td><%= [caseItem.diagnosis_code, caseItem.diagnosis_text].filter(Boolean).join(' — ') || '—' %></td></tr>
+        <tr><th>Complications — antepartum</th><td><%= caseItem.complications_antepartum || '—' %></td></tr>
+        <tr><th>Complications — delivery or postpartum</th><td><%= caseItem.complications_delivery_postpartum || '—' %></td></tr>
+        <tr><th>Operative procedures and/or treatment</th><td><%= [caseItem.procedure_code, caseItem.procedure_text].filter(Boolean).join(' — ') || '—' %></td></tr>
+        <tr><th>Days in hospital</th><td><%= caseItem.days_in_hospital ?? '—' %></td></tr>
+        <tr><th>Perinatal death</th><td><%= caseItem.perinatal_death || '—' %></td></tr>
+        <tr><th>Newborn weight</th><td><%= caseItem.newborn_weight || '—' %></td></tr>
+        <tr><th>Newborn APGAR (1 &amp; 5 min)</th><td><%= caseItem.newborn_apgar || '—' %></td></tr>
+        <tr><th>Newborn days in hospital</th><td><%= caseItem.newborn_days_in_hospital || '—' %></td></tr>
+
+        <% } else if (caseItem.section === 'Gynecology') { %>
+        <tr><th>Diagnosis — preoperative or admission</th><td><%= [caseItem.diagnosis_code, caseItem.diagnosis_text].filter(Boolean).join(' — ') || '—' %></td></tr>
+        <tr><th>Treatment</th><td><%= [caseItem.procedure_code, caseItem.procedure_text, caseItem.treatment].filter(Boolean).join(' — ') || '—' %></td></tr>
+        <tr><th>Surgical pathology diagnosis</th><td><%= caseItem.surgical_pathology_diagnosis || '—' %></td></tr>
+        <tr><th>Uterine weight (g)</th><td><%= caseItem.uterine_weight_g ?? '—' %></td></tr>
+        <tr><th>Complications</th><td><%= caseItem.complications || '—' %></td></tr>
+        <tr><th>Days in hospital</th><td><%= caseItem.days_in_hospital ?? '—' %></td></tr>
+
+        <% } else if (caseItem.section === 'Office Practice') { %>
+        <tr><th>Problem</th><td><%= caseItem.diagnosis_text || '—' %></td></tr>
+        <tr><th>Diagnostic procedures</th><td><%= caseItem.diagnostic_procedures || '—' %></td></tr>
+        <tr><th>Treatment</th><td><%= caseItem.treatment || '—' %></td></tr>
+        <tr><th>Results</th><td><%= caseItem.results || '—' %></td></tr>
+        <tr><th>No. of visits</th><td><%= caseItem.visit_count ?? '—' %></td></tr>
+
+        <% } else { %>
+        <tr><th>Diagnosis</th><td><%= [caseItem.diagnosis_code, caseItem.diagnosis_text].filter(Boolean).join(' — ') || '—' %></td></tr>
         <tr><th>Procedure</th><td><%= [caseItem.procedure_code, caseItem.procedure_text].filter(Boolean).join(' — ') || '—' %></td></tr>
         <tr><th>Complications</th><td><%= caseItem.complications || '—' %></td></tr>
+        <% } %>
+
         <tr><th>Notes</th><td><%= caseItem.notes || '—' %></td></tr>
         <% if (caseItem.source_note) { %>
         <tr><th>Original note (kept)</th><td class="small muted"><%= caseItem.source_note %></td></tr>

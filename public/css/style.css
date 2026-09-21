@@ -201,6 +201,11 @@ footer.app-footer { text-align: center; color: var(--muted); font-size: 0.8rem; 
 }
 .modal-close:hover { background: var(--bg); color: var(--text); }
 
+.report-table { font-size: 0.82rem; white-space: normal; }
+.report-table th, .report-table td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+.report-table th { background: var(--bg); text-transform: none; letter-spacing: 0; font-size: 0.76rem; }
+.report-table td:first-child { white-space: nowrap; font-weight: 650; }
+
 @media (max-width: 640px) {
   .form-grid { grid-template-columns: 1fr; }
 }

@@ -16,11 +16,19 @@ function findCategoryByName(name) {
 }
 
 const CASE_FIELDS = [
-  'patient_initials', 'patient_ref', 'age', 'gender', 'category_id',
+  'patient_initials', 'patient_ref', 'age', 'gravida', 'para', 'gender', 'category_id',
   'date_of_service', 'setting', 'gestational_age', 'delivery_type',
   'diagnosis_code', 'diagnosis_text', 'procedure_code', 'procedure_text',
   'role', 'complications', 'notes',
+  // Fields matching ABOG's official per-section case list columns — see
+  // src/db.js for which section each one belongs to.
+  'days_in_hospital', 'diagnostic_procedures', 'treatment', 'results', 'visit_count',
+  'surgical_pathology_diagnosis', 'uterine_weight_g',
+  'complications_antepartum', 'complications_delivery_postpartum', 'perinatal_death',
+  'newborn_weight', 'newborn_apgar', 'newborn_days_in_hospital',
 ];
+
+const INTEGER_FIELDS = ['age', 'gravida', 'para', 'category_id', 'days_in_hospital', 'visit_count', 'uterine_weight_g'];
 
 function sanitizeBody(body) {
   const out = {};
@@ -30,13 +38,11 @@ function sanitizeBody(body) {
     val = String(val).trim();
     out[field] = val === '' ? null : val;
   }
-  if (out.age !== undefined && out.age !== null) {
-    const n = parseInt(out.age, 10);
-    out.age = Number.isFinite(n) ? n : null;
-  }
-  if (out.category_id !== undefined && out.category_id !== null) {
-    const n = parseInt(out.category_id, 10);
-    out.category_id = Number.isFinite(n) ? n : null;
+  for (const field of INTEGER_FIELDS) {
+    if (out[field] !== undefined && out[field] !== null) {
+      const n = parseInt(out[field], 10);
+      out[field] = Number.isFinite(n) ? n : null;
+    }
   }
   return out;
 }
@@ -136,8 +142,12 @@ router.get('/export.csv', (req, res) => {
     .all();
   const headers = [
     'id', 'section', 'category_name', 'date_of_service', 'patient_initials', 'patient_ref',
-    'age', 'gender', 'setting', 'gestational_age', 'delivery_type', 'diagnosis_code',
-    'diagnosis_text', 'procedure_code', 'procedure_text', 'role', 'complications', 'notes',
+    'age', 'gravida', 'para', 'gender', 'setting', 'gestational_age', 'delivery_type', 'diagnosis_code',
+    'diagnosis_text', 'procedure_code', 'procedure_text', 'role', 'complications',
+    'days_in_hospital', 'diagnostic_procedures', 'treatment', 'results', 'visit_count',
+    'surgical_pathology_diagnosis', 'uterine_weight_g',
+    'complications_antepartum', 'complications_delivery_postpartum', 'perinatal_death',
+    'newborn_weight', 'newborn_apgar', 'newborn_days_in_hospital', 'notes',
   ];
   const csvEscape = (v) => {
     if (v === null || v === undefined) return '';
@@ -154,10 +164,35 @@ router.get('/export.csv', (req, res) => {
   res.send(lines.join('\n'));
 });
 
+const REPORT_SECTIONS = ['Obstetrics', 'Gynecology', 'Office Practice'];
+
+// The official ABOG submission format for each section is a specific
+// table of columns, not a generic case list — this renders that table.
+// Numbering (and the P/S suffix ABOG's own forms use to mark a resident-
+// managed staff case) is generated here rather than stored, since it's
+// just the row's position within the section, in date order.
+router.get('/report/:section', (req, res) => {
+  const section = REPORT_SECTIONS.find((s) => s === req.params.section);
+  if (!section) return res.status(404).render('error', { title: 'Not found', message: 'Unknown section.' });
+  const rows = db
+    .prepare(
+      `SELECT cases.*, categories.name AS category_name
+       FROM cases LEFT JOIN categories ON cases.category_id = categories.id
+       WHERE categories.section = ?
+       ORDER BY date(cases.date_of_service) ASC, cases.id ASC`
+    )
+    .all(section);
+  const numbered = rows.map((row, i) => ({
+    ...row,
+    rowNumber: `${i + 1} ${row.role === 'Supervised Resident' ? 'S' : 'P'}`,
+  }));
+  res.render('cases/report', { title: `${section} — Case List`, section, rows: numbered });
+});
+
 router.get('/:id', (req, res) => {
   const caseItem = db
     .prepare(
-      `SELECT cases.*, categories.name AS category_name
+      `SELECT cases.*, categories.name AS category_name, categories.section AS section
        FROM cases LEFT JOIN categories ON cases.category_id = categories.id
        WHERE cases.id = ?`
     )

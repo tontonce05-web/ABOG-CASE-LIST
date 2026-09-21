@@ -47,6 +47,11 @@ CREATE TABLE IF NOT EXISTS cases (
   updated_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
+-- Fields below match the columns on ABOG's own official case list forms
+-- (Office Patients / Gynecologic Patients / Obstetrical Patients), added
+-- via ALTER TABLE further down so an already-running database picks them
+-- up without losing existing case data.
+
 CREATE INDEX IF NOT EXISTS idx_cases_category ON cases(category_id);
 CREATE INDEX IF NOT EXISTS idx_cases_date ON cases(date_of_service);
 
@@ -67,6 +72,36 @@ CREATE TABLE IF NOT EXISTS audit_log (
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 `);
+
+// New columns matching ABOG's official per-section case list format
+// (gravida/para on all three; antepartum vs. delivery/postpartum
+// complications and newborn outcomes on Obstetrics; surgical pathology
+// and uterine weight on Gynecology; diagnostic procedures/results/visit
+// count on Office Practice). ADD COLUMN is additive and safe to re-run —
+// guarded per-column since SQLite errors on an already-existing column.
+const NEW_CASE_COLUMNS = {
+  gravida: 'INTEGER',
+  para: 'INTEGER',
+  days_in_hospital: 'INTEGER',
+  diagnostic_procedures: 'TEXT',
+  treatment: 'TEXT',
+  results: 'TEXT',
+  visit_count: 'INTEGER',
+  surgical_pathology_diagnosis: 'TEXT',
+  uterine_weight_g: 'INTEGER',
+  complications_antepartum: 'TEXT',
+  complications_delivery_postpartum: 'TEXT',
+  perinatal_death: 'TEXT',
+  newborn_weight: 'TEXT',
+  newborn_apgar: 'TEXT',
+  newborn_days_in_hospital: 'TEXT',
+};
+const existingCaseColumns = new Set(db.prepare('PRAGMA table_info(cases)').all().map((c) => c.name));
+for (const [name, type] of Object.entries(NEW_CASE_COLUMNS)) {
+  if (!existingCaseColumns.has(name)) {
+    db.exec(`ALTER TABLE cases ADD COLUMN ${name} ${type}`);
+  }
+}
 
 // --- Default settings ---
 function getSetting(key, fallback = null) {

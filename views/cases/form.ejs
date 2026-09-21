@@ -43,7 +43,7 @@
               <% if (cat.section !== currentSection) { if (currentSection !== null) { %></optgroup><% } %>
                 <optgroup label="<%= cat.section %>">
               <% currentSection = cat.section; } %>
-              <option value="<%= cat.id %>" <%= String(caseItem.category_id) === String(cat.id) ? 'selected' : '' %>><%= cat.name %></option>
+              <option value="<%= cat.id %>" data-section="<%= cat.section %>" <%= String(caseItem.category_id) === String(cat.id) ? 'selected' : '' %>><%= cat.name %></option>
             <% }); %>
             <% if (currentSection !== null) { %></optgroup><% } %>
           </select>
@@ -76,6 +76,15 @@
         </div>
 
         <div class="field-group">
+          <label for="gravida">Gravida (G)</label>
+          <input type="number" id="gravida" name="gravida" min="0" value="<%= caseItem.gravida || '' %>" />
+        </div>
+        <div class="field-group">
+          <label for="para">Para (P)</label>
+          <input type="number" id="para" name="para" min="0" value="<%= caseItem.para || '' %>" />
+        </div>
+
+        <div class="field-group">
           <label for="setting">Setting</label>
           <select id="setting" name="setting">
             <option value="">—</option>
@@ -94,18 +103,76 @@
           </select>
         </div>
 
-        <div class="field-group">
-          <label for="gestational_age">Gestational age (if OB)</label>
+        <div class="field-group section-fields" data-section="Obstetrics">
+          <label for="gestational_age">Gestational age</label>
           <input type="text" id="gestational_age" name="gestational_age" placeholder="e.g. 39w2d" value="<%= caseItem.gestational_age || '' %>" />
         </div>
-        <div class="field-group">
-          <label for="delivery_type">Delivery type (if applicable)</label>
+        <div class="field-group section-fields" data-section="Obstetrics">
+          <label for="delivery_type">Delivery type</label>
           <select id="delivery_type" name="delivery_type">
             <option value="">—</option>
             <% ['Spontaneous Vaginal','Operative Vaginal (Forceps)','Operative Vaginal (Vacuum)','Cesarean — Primary','Cesarean — Repeat','VBAC'].forEach(function(d) { %>
               <option value="<%= d %>" <%= caseItem.delivery_type === d ? 'selected' : '' %>><%= d %></option>
             <% }); %>
           </select>
+        </div>
+        <div class="field-group section-fields full" data-section="Obstetrics">
+          <label for="complications_antepartum">Complications — antepartum</label>
+          <input type="text" id="complications_antepartum" name="complications_antepartum" value="<%= caseItem.complications_antepartum || '' %>" />
+        </div>
+        <div class="field-group section-fields full" data-section="Obstetrics">
+          <label for="complications_delivery_postpartum">Complications — delivery or postpartum</label>
+          <input type="text" id="complications_delivery_postpartum" name="complications_delivery_postpartum" value="<%= caseItem.complications_delivery_postpartum || '' %>" />
+        </div>
+        <div class="field-group section-fields" data-section="Obstetrics">
+          <label for="perinatal_death">Perinatal death</label>
+          <select id="perinatal_death" name="perinatal_death">
+            <option value="">—</option>
+            <option value="No" <%= caseItem.perinatal_death === 'No' ? 'selected' : '' %>>No</option>
+            <option value="Yes" <%= caseItem.perinatal_death === 'Yes' ? 'selected' : '' %>>Yes</option>
+          </select>
+        </div>
+        <div class="field-group section-fields" data-section="Obstetrics" data-section-also="Gynecology">
+          <label for="days_in_hospital">Days in hospital</label>
+          <input type="number" id="days_in_hospital" name="days_in_hospital" min="0" value="<%= caseItem.days_in_hospital ?? '' %>" />
+        </div>
+        <div class="field-group section-fields" data-section="Obstetrics">
+          <label for="newborn_weight">Newborn weight</label>
+          <input type="text" id="newborn_weight" name="newborn_weight" placeholder="e.g. 3200g, or A: 2225g B: 2420g for twins" value="<%= caseItem.newborn_weight || '' %>" />
+        </div>
+        <div class="field-group section-fields" data-section="Obstetrics">
+          <label for="newborn_apgar">Newborn APGAR (1 &amp; 5 min)</label>
+          <input type="text" id="newborn_apgar" name="newborn_apgar" placeholder="e.g. 8-9" value="<%= caseItem.newborn_apgar || '' %>" />
+        </div>
+        <div class="field-group section-fields" data-section="Obstetrics">
+          <label for="newborn_days_in_hospital">Newborn days in hospital</label>
+          <input type="text" id="newborn_days_in_hospital" name="newborn_days_in_hospital" value="<%= caseItem.newborn_days_in_hospital || '' %>" />
+        </div>
+
+        <div class="field-group section-fields" data-section="Gynecology">
+          <label for="surgical_pathology_diagnosis">Surgical pathology diagnosis</label>
+          <input type="text" id="surgical_pathology_diagnosis" name="surgical_pathology_diagnosis" value="<%= caseItem.surgical_pathology_diagnosis || '' %>" />
+        </div>
+        <div class="field-group section-fields" data-section="Gynecology">
+          <label for="uterine_weight_g">Uterine weight (g)</label>
+          <input type="number" id="uterine_weight_g" name="uterine_weight_g" min="0" value="<%= caseItem.uterine_weight_g ?? '' %>" />
+        </div>
+
+        <div class="field-group section-fields" data-section="Gynecology" data-section-also="Office Practice">
+          <label for="treatment">Treatment</label>
+          <input type="text" id="treatment" name="treatment" value="<%= caseItem.treatment || '' %>" />
+        </div>
+        <div class="field-group section-fields" data-section="Office Practice">
+          <label for="diagnostic_procedures">Diagnostic procedures</label>
+          <input type="text" id="diagnostic_procedures" name="diagnostic_procedures" value="<%= caseItem.diagnostic_procedures || '' %>" />
+        </div>
+        <div class="field-group section-fields" data-section="Office Practice">
+          <label for="results">Results</label>
+          <input type="text" id="results" name="results" value="<%= caseItem.results || '' %>" />
+        </div>
+        <div class="field-group section-fields" data-section="Office Practice">
+          <label for="visit_count">No. of visits (for this problem)</label>
+          <input type="number" id="visit_count" name="visit_count" min="0" value="<%= caseItem.visit_count ?? '' %>" />
         </div>
 
         <div class="field-group">
@@ -152,5 +219,6 @@
       </div>
     </form>
   </div>
+  <script src="/js/caseForm.js"></script>
 </body>
 </html>
