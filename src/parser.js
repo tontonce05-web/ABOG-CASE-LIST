@@ -31,6 +31,7 @@ const PROCEDURE_LOOKUP = [
   { keywords: ['iud placement', 'iud insertion', 'nexplanon', 'implant insertion'], category: 'Contraceptive counseling and management', code: '58300', text: 'Contraceptive device insertion' },
   { keywords: ['dilation and evacuation', 'd&e', 'abortion'], category: 'Obstetrical D&E and D&C (miscarriage and abortion management)', code: null, text: 'Pregnancy termination procedure' },
   { keywords: ['ivf', 'iui', 'infertility', 'ovulation induction'], category: 'Infertility and recurrent pregnancy loss', code: null, text: 'Infertility management/procedure' },
+  { keywords: ['graves', 'hyperthyroid', 'hypothyroid', 'thyroid disease', 'chronic hypertension', 'pregestational diabetes', 'cardiomyopathy', 'seizure disorder', 'lupus', 'sle'], category: 'Co-existent medical comorbidities in the preconception, antenatal and intra and postpartum management.', code: null, text: null },
 ];
 
 function findFirst(text, regex) {
@@ -118,15 +119,42 @@ function parseNote(rawText) {
   else if (/\bfirst assist/.test(lower)) suggestions.role = 'First Assistant';
   else suggestions.role = 'Primary Surgeon';
 
-  // Setting
-  if (/\boutpatient\b|\boffice\b/.test(lower)) suggestions.setting = 'Outpatient';
-  else if (/\bshort[-\s]?stay\b|\b23[-\s]?hour\b/.test(lower)) suggestions.setting = 'Short-Stay';
-  else suggestions.setting = 'Inpatient';
+  // Setting. Only guess when the note actually signals one way or the
+  // other — a clinic/office note (problem list, "prenatal visit", referral
+  // language) shouldn't default to Inpatient just because nothing else
+  // matched; better to leave it blank than assume wrong.
+  if (/\boutpatient\b|\boffice\b/.test(lower)) {
+    suggestions.setting = 'Outpatient';
+  } else if (/\bshort[-\s]?stay\b|\b23[-\s]?hour\b/.test(lower)) {
+    suggestions.setting = 'Short-Stay';
+  } else if (/\b(admit(ted)?|discharged (home|today)|discharge summary|post[-\s]?op(erative)? day|pod\s*#?\d|hospital day)\b/.test(lower)) {
+    suggestions.setting = 'Inpatient';
+  } else if (/\b(prenatal visit|clinic visit|follow[-\s]?up|referred to|problem list|assessment\s*(and|&)\s*plan)\b/.test(lower)) {
+    suggestions.setting = 'Outpatient';
+  }
+
+  // A numbered problem list ("Problem #1: ...", "Problem 2: ...") is the
+  // clinician's own summary of what's going on — pull just the problem
+  // titles (not the assessment/plan detail under each one, which is where
+  // operational asides like insurance notes tend to live) into a single
+  // de-identified diagnosis summary.
+  const problemRe = /problem\s*#?\s*\d+\s*:\s*([^\n]+)/gi;
+  const problems = [];
+  let problemMatch;
+  while ((problemMatch = problemRe.exec(text)) !== null) {
+    problems.push(problemMatch[1].trim());
+  }
+  if (problems.length) {
+    suggestions.diagnosis_text = problems.join('; ');
+  }
 
   // If the note has an Assessment/Plan/Problem List/Hospital Course section,
   // scan that instead of the whole note so history sections (PMH, PSH, social
-  // history) don't get mistaken for what this case actually is.
-  const authoritative = extractAuthoritativeSection(text);
+  // history) don't get mistaken for what this case actually is. A note with
+  // its own numbered problem list repeats "Assessment:"/"Plan:" once per
+  // problem, so the single-block extraction below would only capture the
+  // first one — scan the whole note instead in that case.
+  const authoritative = problems.length ? null : extractAuthoritativeSection(text);
   const scanLower = (authoritative || text).toLowerCase();
 
   // Complications
@@ -134,7 +162,7 @@ function parseNote(rawText) {
     'hemorrhage', 'laceration', 'infection', 'transfusion', 'reoperation',
     'injury', 'dehiscence', 'readmission', 'complication',
   ];
-  const negations = /\b(no|none|denies|without|negative for|no evidence of|uncomplicated)\b/;
+  const negations = /\b(no|none|denies|without|negative for|no evidence of|uncomplicated|unless|if)\b/;
   const foundComplications = complicationKeywords.filter((k) => {
     const idx = scanLower.indexOf(k);
     if (idx === -1) return false;
