@@ -13,9 +13,14 @@
       <input type="text" name="q" placeholder="Search patient, diagnosis, procedure..." value="<%= q %>" />
       <select name="category">
         <option value="">All categories</option>
+        <% var currentSection = null; %>
         <% categories.forEach(function(cat) { %>
+          <% if (cat.section !== currentSection) { if (currentSection !== null) { %></optgroup><% } %>
+            <optgroup label="<%= cat.section %>">
+          <% currentSection = cat.section; } %>
           <option value="<%= cat.id %>" <%= String(filterCategory) === String(cat.id) ? 'selected' : '' %>><%= cat.name %></option>
         <% }); %>
+        <% if (currentSection !== null) { %></optgroup><% } %>
       </select>
       <button type="submit" class="btn-secondary btn-small">Filter</button>
       <% if (q || filterCategory) { %><a href="/cases" class="btn-small btn-secondary">Clear</a><% } %>
