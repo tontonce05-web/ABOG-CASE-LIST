@@ -37,10 +37,13 @@
       <div class="progress-grid">
         <% group.items.forEach(function(item) { %>
           <div class="progress-item">
-            <div class="label">
-              <span><%= item.name %></span>
+            <button type="button" class="qa-plus" title="Add a patient to <%= item.name %>"
+                    data-category-id="<%= item.id %>" data-category-name="<%= item.name %>"
+                    data-next-number="<%= item.count + 1 %>" aria-label="Add patient to <%= item.name %>">+</button>
+            <a class="label" href="/cases?category=<%= item.id %>">
+              <span class="progress-item-name"><%= item.name %></span>
               <span class="count"><%= item.count %><%= item.minimum_count > 0 ? ' / ' + item.minimum_count : '' %></span>
-            </div>
+            </a>
             <% if (item.overCap) { %>
               <div class="no-min">Only <%= group.maxPerCategory %> of these <%= item.count %> count toward the minimum</div>
             <% } else if (item.minimum_count > 0) { %>
@@ -64,13 +67,13 @@
         </div>
       <% } else { %>
       <table>
-        <thead><tr><th>Date</th><th>Category</th><th>Initials</th><th>Procedure</th><th></th></tr></thead>
+        <thead><tr><th>Date</th><th>Category</th><th>Patient</th><th>Procedure</th><th></th></tr></thead>
         <tbody>
           <% recentCases.forEach(function(c) { %>
           <tr>
             <td><%= c.date_of_service || '—' %></td>
             <td><%= c.category_name || '—' %></td>
-            <td><%= c.patient_initials || '—' %></td>
+            <td><%= c.patient_ref || c.patient_initials || '—' %></td>
             <td><%= c.procedure_text || '—' %></td>
             <td><a href="/cases/<%= c.id %>">View</a></td>
           </tr>
@@ -80,6 +83,62 @@
       <% } %>
     </div>
   </div>
+
+  <dialog id="quick-add-modal" class="modal">
+    <form method="POST" action="/cases" class="modal-form">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+      <input type="hidden" name="category_id" id="qa-category-id" />
+      <div class="modal-header">
+        <h2 id="qa-category-name">Add patient</h2>
+        <button type="button" class="modal-close" id="qa-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="form-grid">
+        <div class="field-group">
+          <label for="qa-patient-ref">Patient reference</label>
+          <input type="text" id="qa-patient-ref" name="patient_ref" />
+        </div>
+        <div class="field-group">
+          <label for="qa-date">Date of service</label>
+          <input type="date" id="qa-date" name="date_of_service" />
+        </div>
+        <div class="field-group">
+          <label for="qa-age">Age</label>
+          <input type="number" id="qa-age" name="age" min="0" max="120" />
+        </div>
+        <div class="field-group">
+          <label for="qa-gender">Gender</label>
+          <select id="qa-gender" name="gender">
+            <option value="">—</option>
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+          </select>
+        </div>
+        <div class="field-group full">
+          <label for="qa-diagnosis">Diagnosis</label>
+          <input type="text" id="qa-diagnosis" name="diagnosis_text" />
+        </div>
+        <div class="field-group full">
+          <label for="qa-procedure">Procedure / treatment</label>
+          <input type="text" id="qa-procedure" name="procedure_text" />
+        </div>
+        <div class="field-group full">
+          <label for="qa-complications">Complications</label>
+          <input type="text" id="qa-complications" name="complications" />
+        </div>
+        <div class="field-group full">
+          <label for="qa-notes">Notes</label>
+          <textarea id="qa-notes" name="notes" rows="2"></textarea>
+        </div>
+      </div>
+      <p class="small muted">De-identify before saving — no names, MRNs, or full dates of birth. Need more fields (role, setting, gestational age)? <a href="/cases/new">Use the full form</a> instead.</p>
+      <div class="actions">
+        <button type="submit" class="btn">Save patient</button>
+        <button type="button" formmethod="dialog" class="btn btn-secondary" id="qa-cancel">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
   <footer class="app-footer">Private tool · de-identify all entries before saving · verify official requirements at abog.org</footer>
+  <script src="/js/dashboard.js"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@
     </div>
 
     <form method="GET" action="/cases" class="filters">
-      <input type="text" name="q" placeholder="Search initials, diagnosis, procedure..." value="<%= q %>" />
+      <input type="text" name="q" placeholder="Search patient, diagnosis, procedure..." value="<%= q %>" />
       <select name="category">
         <option value="">All categories</option>
         <% categories.forEach(function(cat) { %>
@@ -31,15 +31,15 @@
       <table>
         <thead>
           <tr>
-            <th>Date</th><th>Category</th><th>Initials</th><th>Age</th><th>Procedure</th><th>Role</th><th></th>
+            <th>Date</th><th>Category</th><th>Patient</th><th>Age</th><th>Procedure</th><th>Role</th><th></th>
           </tr>
         </thead>
         <tbody>
           <% cases.forEach(function(c) { %>
           <tr>
             <td><%= c.date_of_service || '—' %></td>
-            <td><% if (c.section) { %><span class="badge section-<%= c.section %>"><%= c.category_name %></span><% } else { %>—<% } %></td>
-            <td><%= c.patient_initials || '—' %></td>
+            <td><% if (c.section) { %><span class="badge section-<%= c.section.replace(/\s+/g, '') %>"><%= c.category_name %></span><% } else { %>—<% } %></td>
+            <td><%= c.patient_ref || c.patient_initials || '—' %></td>
             <td><%= c.age || '—' %></td>
             <td><%= c.procedure_text || '—' %></td>
             <td><%= c.role || '—' %></td>

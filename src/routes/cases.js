@@ -70,10 +70,10 @@ router.get('/', (req, res) => {
     params.push(category);
   }
   if (q) {
-    sql += ` AND (cases.patient_initials LIKE ? OR cases.diagnosis_text LIKE ?
+    sql += ` AND (cases.patient_ref LIKE ? OR cases.patient_initials LIKE ? OR cases.diagnosis_text LIKE ?
              OR cases.procedure_text LIKE ? OR cases.notes LIKE ?)`;
     const like = `%${q}%`;
-    params.push(like, like, like, like);
+    params.push(like, like, like, like, like);
   }
   sql += ' ORDER BY date(cases.date_of_service) DESC, cases.id DESC';
   const cases = db.prepare(sql).all(...params);
