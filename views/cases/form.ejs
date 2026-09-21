@@ -35,6 +35,15 @@
 
       <div class="form-grid">
         <div class="field-group">
+          <label for="section_select">Section</label>
+          <select id="section_select">
+            <option value="">Select a section...</option>
+            <option value="Obstetrics">Obstetrics</option>
+            <option value="Gynecology">Gynecology</option>
+            <option value="Office Practice">Office Practice</option>
+          </select>
+        </div>
+        <div class="field-group" id="category_field_group">
           <label for="category_id">Category</label>
           <select id="category_id" name="category_id" required>
             <option value="">Select a category...</option>
@@ -219,6 +228,7 @@
       </div>
     </form>
   </div>
+  <script src="/js/categorySelect.js"></script>
   <script src="/js/caseForm.js"></script>
 </body>
 </html>
