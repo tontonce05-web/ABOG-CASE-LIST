@@ -38,9 +38,14 @@
           <label for="category_id">Category</label>
           <select id="category_id" name="category_id" required>
             <option value="">Select a category...</option>
+            <% var currentSection = null; %>
             <% categories.forEach(function(cat) { %>
-              <option value="<%= cat.id %>" <%= String(caseItem.category_id) === String(cat.id) ? 'selected' : '' %>><%= cat.section %> — <%= cat.name %></option>
+              <% if (cat.section !== currentSection) { if (currentSection !== null) { %></optgroup><% } %>
+                <optgroup label="<%= cat.section %>">
+              <% currentSection = cat.section; } %>
+              <option value="<%= cat.id %>" <%= String(caseItem.category_id) === String(cat.id) ? 'selected' : '' %>><%= cat.name %></option>
             <% }); %>
+            <% if (currentSection !== null) { %></optgroup><% } %>
           </select>
         </div>
         <div class="field-group">

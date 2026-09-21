@@ -10,9 +10,11 @@ for General OB/GYN certification.
 - **PIN-gated access** (default `1732` — change it immediately from
   Settings). Bcrypt-hashed, rate-limited, with a lockout after repeated
   failed attempts, and a 20-minute idle session timeout.
-- **Dashboard** showing progress toward your category minimums (set your
-  own numbers from the current ABOG bulletin under Settings), grouped into
-  Obstetrics / Gynecology / Other sections.
+- **Dashboard** with the three sections from ABOG's own case list page —
+  Obstetrics, Gynecology, Office Practice — each with its real categories
+  and guidelines, tracking progress against ABOG's actual rule: a minimum
+  total per section (20 / 20 / 40), counting at most 2 patients per
+  category toward that minimum.
 - **Add cases by hand**, or **quick-add from a note**: paste a short OR-note
   line, or a full H&P / Assessment & Plan / Problem List, and the app
   suggests age, gestational age, delivery type, procedure/CPT code,

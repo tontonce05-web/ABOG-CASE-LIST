@@ -8,7 +8,32 @@
     <p class="subtitle">Collection period: <%= collectionStart %> to <%= collectionEnd %> · <%= totalCases %> case<%= totalCases === 1 ? '' : 's' %> logged</p>
 
     <% bySection.forEach(function(group) { %>
-      <div class="section-header"><h2><%= group.section %></h2></div>
+      <div class="section-header">
+        <h2><%= group.section %></h2>
+        <% if (group.minimum) { %>
+          <span class="count"><%= group.effectiveCount %> / <%= group.minimum %> counted<%= group.met ? ' — minimum met' : '' %></span>
+        <% } %>
+      </div>
+      <% if (group.minimum) { %>
+        <div class="progress-bar" style="margin-bottom:10px;">
+          <div class="progress-bar-fill <%= group.met ? 'complete' : '' %>" style="width: <%= group.pct %>%"></div>
+        </div>
+        <p class="small muted" style="margin-top:-4px;">Max <%= group.maxPerCategory %> patients per category count toward this minimum — every patient still needs to be listed, extra cases in one category just don't add to the total.</p>
+      <% } %>
+      <% if (group.guidelines) { %>
+        <details class="note-box" style="margin-bottom:16px;">
+          <summary style="cursor:pointer; font-weight:600;">Guidelines from ABOG's case list page</summary>
+          <ul class="small" style="margin-top:10px;">
+            <% group.guidelines.forEach(function(g) { %><li><%= g %></li><% }); %>
+          </ul>
+          <% if (group.exclusionNote) { %>
+            <p class="small" style="margin-top:10px;"><strong><%= group.exclusionNote.heading %></strong></p>
+            <ul class="small">
+              <% group.exclusionNote.items.forEach(function(g) { %><li><%= g %></li><% }); %>
+            </ul>
+          <% } %>
+        </details>
+      <% } %>
       <div class="progress-grid">
         <% group.items.forEach(function(item) { %>
           <div class="progress-item">
@@ -16,11 +41,13 @@
               <span><%= item.name %></span>
               <span class="count"><%= item.count %><%= item.minimum_count > 0 ? ' / ' + item.minimum_count : '' %></span>
             </div>
-            <% if (item.minimum_count > 0) { %>
+            <% if (item.overCap) { %>
+              <div class="no-min">Only <%= group.maxPerCategory %> of these <%= item.count %> count toward the minimum</div>
+            <% } else if (item.minimum_count > 0) { %>
               <div class="progress-bar">
                 <div class="progress-bar-fill <%= item.pct >= 100 ? 'complete' : '' %>" style="width: <%= item.pct %>%"></div>
               </div>
-            <% } else { %>
+            <% } else if (!group.minimum) { %>
               <div class="no-min">No minimum set</div>
             <% } %>
           </div>

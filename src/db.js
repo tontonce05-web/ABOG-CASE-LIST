@@ -95,39 +95,44 @@ if (!getSetting('exam_name')) {
   setSetting('exam_name', 'ABOG Step 2 Certifying Exam — Case List');
 }
 
-// --- Default categories, aligned to the structure ABOG uses for the
-// general OB/GYN Step 2 case list: broad Obstetric and Gynecologic
-// sections, each broken into the sub-categories candidates typically
-// have to fill. Minimums are left editable in Settings since ABOG
-// updates exact numbers in its yearly bulletin. ---
-const defaultCategories = [
-  ['Vaginal Delivery — Spontaneous', 'Obstetrics', 0],
-  ['Vaginal Delivery — Operative (Forceps/Vacuum)', 'Obstetrics', 0],
-  ['Cesarean Delivery — Primary', 'Obstetrics', 0],
-  ['Cesarean Delivery — Repeat', 'Obstetrics', 0],
-  ['VBAC', 'Obstetrics', 0],
-  ['Obstetric Complications (e.g. PPH, Preeclampsia, PTL)', 'Obstetrics', 0],
-  ['Antepartum / High-Risk OB Care', 'Obstetrics', 0],
-  ['Major Gynecologic Surgery', 'Gynecology', 0],
-  ['Minor Gynecologic Surgery / Office Procedures', 'Gynecology', 0],
-  ['Laparoscopy / Minimally Invasive Gyn Surgery', 'Gynecology', 0],
-  ['Hysteroscopy', 'Gynecology', 0],
-  ['Urogynecology / Pelvic Floor', 'Gynecology', 0],
-  ['Gynecologic Oncology', 'Gynecology', 0],
-  ['Family Planning (Contraception/Abortion Care)', 'Gynecology', 0],
-  ['Reproductive Endocrinology / Infertility', 'Gynecology', 0],
-  ['Other', 'Other', 0],
-];
+// --- Categories, taken directly from the three tabs of ABOG's own case
+// list page (see src/abogRequirements.js) rather than an approximation.
+// Seeding is idempotent (INSERT OR IGNORE keyed on the UNIQUE name column)
+// so it also backfills an already-running database when this list changes,
+// without touching categories or cases that already exist. ---
+const { SECTIONS } = require('./abogRequirements');
 
-const categoryCount = db.prepare('SELECT COUNT(*) AS c FROM categories').get().c;
-if (categoryCount === 0) {
-  const insert = db.prepare(
-    'INSERT INTO categories (name, section, minimum_count, sort_order) VALUES (?, ?, ?, ?)'
-  );
-  const tx = db.transaction((rows) => {
-    rows.forEach(([name, section, min], i) => insert.run(name, section, min, i));
-  });
-  tx(defaultCategories);
-}
+const defaultCategories = [];
+Object.entries(SECTIONS).forEach(([section, def]) => {
+  def.categories.forEach((name, i) => defaultCategories.push([name, section, 0, i]));
+});
+
+const insertCategory = db.prepare(
+  'INSERT OR IGNORE INTO categories (name, section, minimum_count, sort_order) VALUES (?, ?, ?, ?)'
+);
+const seedTx = db.transaction((rows) => {
+  rows.forEach(([name, section, min, order]) => insertCategory.run(name, section, min, order));
+});
+seedTx(defaultCategories);
+
+// Categories from the old placeholder structure (a made-up approximation
+// of ABOG's real categories) that have no cases attached are stale and
+// safe to drop now that the real ones above are seeded. Any with cases
+// attached are left in place so existing case data is never orphaned.
+const realNames = new Set(defaultCategories.map((row) => row[0]));
+const staleCandidates = db
+  .prepare(
+    `SELECT categories.id FROM categories
+     LEFT JOIN cases ON cases.category_id = categories.id
+     WHERE categories.section IN ('Obstetrics', 'Gynecology', 'Other')
+     GROUP BY categories.id
+     HAVING COUNT(cases.id) = 0`
+  )
+  .all();
+const deleteStale = db.prepare('DELETE FROM categories WHERE id = ?');
+staleCandidates.forEach((row) => {
+  const cat = db.prepare('SELECT name FROM categories WHERE id = ?').get(row.id);
+  if (cat && !realNames.has(cat.name)) deleteStale.run(row.id);
+});
 
 module.exports = { db, getSetting, setSetting };

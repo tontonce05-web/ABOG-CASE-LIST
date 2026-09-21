@@ -56,7 +56,7 @@
 
     <div class="settings-section card">
       <h2>Categories & minimums</h2>
-      <p class="small muted">ABOG publishes exact minimum counts per category in its yearly Certifying Exam Bulletin — set them here to match your bulletin.</p>
+      <p class="small muted">Obstetrics, Gynecology, and Office Practice follow ABOG's published rule directly: a minimum total per section (20 / 20 / 40), with at most <%= sectionRules.Obstetrics.maxPerCategory %> patients per category counting toward it — see the Dashboard for each section's guidelines. Any other category you add yourself here can have its own minimum.</p>
       <table>
         <thead><tr><th>Section</th><th>Category</th><th>Minimum</th><th></th></tr></thead>
         <tbody>
@@ -65,11 +65,15 @@
             <td><%= cat.section %></td>
             <td><%= cat.name %></td>
             <td>
+              <% if (cat.ruled) { %>
+                <span class="small muted">capped at <%= sectionRules[cat.section].maxPerCategory %> (ABOG rule)</span>
+              <% } else { %>
               <form method="POST" action="/settings/categories/<%= cat.id %>" class="inline-form">
                 <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
                 <input type="number" name="minimum_count" value="<%= cat.minimum_count %>" min="0" style="width:80px; display:inline-block;" />
                 <button type="submit" class="btn-small btn-secondary">Save</button>
               </form>
+              <% } %>
             </td>
             <td>
               <form method="POST" action="/settings/categories/<%= cat.id %>/delete" class="inline-form"

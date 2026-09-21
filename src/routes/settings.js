@@ -2,14 +2,19 @@ const express = require('express');
 const { db, getSetting, setSetting } = require('../db');
 const { checkCsrf, setPin, verifyPin } = require('../auth');
 const { logAction } = require('../audit');
+const { SECTIONS } = require('../abogRequirements');
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  const categories = db.prepare('SELECT * FROM categories ORDER BY section, sort_order, name').all();
+  const categories = db
+    .prepare('SELECT * FROM categories ORDER BY section, sort_order, name')
+    .all()
+    .map((cat) => ({ ...cat, ruled: !!SECTIONS[cat.section] }));
   res.render('settings', {
     title: 'Settings',
     categories,
+    sectionRules: SECTIONS,
     examName: getSetting('exam_name'),
     collectionStart: getSetting('collection_start'),
     collectionEnd: getSetting('collection_end'),

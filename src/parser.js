@@ -3,30 +3,34 @@
 // — the user always reviews/edits the suggestions before the case is
 // created, and the raw note itself is never persisted.
 
+// Category names below are ABOG's own real case-list categories (see
+// src/abogRequirements.js), not an approximation. A normal, uncomplicated
+// spontaneous vaginal delivery has no category here on purpose — ABOG's own
+// Obstetrics guidelines say normal patients should not be listed at all.
 const PROCEDURE_LOOKUP = [
-  { keywords: ['spontaneous vaginal delivery', 'svd', 'normal vaginal delivery', 'nsvd'], category: 'Vaginal Delivery — Spontaneous', code: '59400', text: 'Vaginal delivery, spontaneous' },
-  { keywords: ['vacuum', 'vacuum-assisted', 'forceps'], category: 'Vaginal Delivery — Operative (Forceps/Vacuum)', code: '59409', text: 'Vaginal delivery, operative (forceps/vacuum)' },
-  { keywords: ['vbac', 'vaginal birth after cesarean'], category: 'VBAC', code: '59612', text: 'Vaginal delivery after previous cesarean' },
-  { keywords: ['repeat cesarean', 'repeat c-section', 'repeat csection'], category: 'Cesarean Delivery — Repeat', code: '59514', text: 'Cesarean delivery, repeat' },
-  { keywords: ['primary cesarean', 'cesarean section', 'c-section', 'csection', 'cesarean delivery'], category: 'Cesarean Delivery — Primary', code: '59510', text: 'Cesarean delivery, primary' },
-  { keywords: ['postpartum hemorrhage', 'pph'], category: 'Obstetric Complications (e.g. PPH, Preeclampsia, PTL)', code: null, text: 'Postpartum hemorrhage' },
-  { keywords: ['preeclampsia', 'eclampsia', 'hellp'], category: 'Obstetric Complications (e.g. PPH, Preeclampsia, PTL)', code: null, text: 'Hypertensive disorder of pregnancy' },
-  { keywords: ['preterm labor', 'ptl'], category: 'Obstetric Complications (e.g. PPH, Preeclampsia, PTL)', code: null, text: 'Preterm labor' },
-  { keywords: ['total abdominal hysterectomy', 'tah'], category: 'Major Gynecologic Surgery', code: '58150', text: 'Total abdominal hysterectomy' },
-  { keywords: ['total laparoscopic hysterectomy', 'tlh', 'laparoscopic hysterectomy'], category: 'Laparoscopy / Minimally Invasive Gyn Surgery', code: '58571', text: 'Laparoscopic total hysterectomy' },
-  { keywords: ['vaginal hysterectomy'], category: 'Major Gynecologic Surgery', code: '58260', text: 'Vaginal hysterectomy' },
-  { keywords: ['myomectomy'], category: 'Major Gynecologic Surgery', code: '58140', text: 'Myomectomy' },
-  { keywords: ['diagnostic laparoscopy', 'laparoscopy'], category: 'Laparoscopy / Minimally Invasive Gyn Surgery', code: '49320', text: 'Diagnostic laparoscopy' },
-  { keywords: ['salpingectomy', 'oophorectomy', 'salpingo-oophorectomy', 'bso'], category: 'Laparoscopy / Minimally Invasive Gyn Surgery', code: '58661', text: 'Laparoscopic salpingectomy/oophorectomy' },
-  { keywords: ['hysteroscopy'], category: 'Hysteroscopy', code: '58558', text: 'Hysteroscopy with biopsy/polypectomy' },
-  { keywords: ['dilation and curettage', 'd&c', 'd and c'], category: 'Minor Gynecologic Surgery / Office Procedures', code: '58120', text: 'Dilation and curettage' },
-  { keywords: ['leep', 'cone biopsy', 'conization'], category: 'Minor Gynecologic Surgery / Office Procedures', code: '57460', text: 'Cervical conization / LEEP' },
-  { keywords: ['sling', 'midurethral sling', 'incontinence procedure'], category: 'Urogynecology / Pelvic Floor', code: '57288', text: 'Sling operation for stress incontinence' },
-  { keywords: ['pelvic organ prolapse', 'sacrocolpopexy', 'colporrhaphy'], category: 'Urogynecology / Pelvic Floor', code: null, text: 'Pelvic organ prolapse repair' },
-  { keywords: ['staging laparotomy', 'debulking', 'ovarian cancer', 'endometrial cancer'], category: 'Gynecologic Oncology', code: null, text: 'Gynecologic oncology surgery' },
-  { keywords: ['iud placement', 'iud insertion', 'nexplanon', 'implant insertion'], category: 'Family Planning (Contraception/Abortion Care)', code: '58300', text: 'Contraceptive device insertion' },
-  { keywords: ['dilation and evacuation', 'd&e', 'abortion'], category: 'Family Planning (Contraception/Abortion Care)', code: null, text: 'Pregnancy termination procedure' },
-  { keywords: ['ivf', 'iui', 'infertility', 'ovulation induction'], category: 'Reproductive Endocrinology / Infertility', code: null, text: 'Infertility management/procedure' },
+  { keywords: ['spontaneous vaginal delivery', 'svd', 'normal vaginal delivery', 'nsvd'], category: null, code: '59400', text: 'Vaginal delivery, spontaneous' },
+  { keywords: ['vacuum', 'vacuum-assisted', 'forceps'], category: 'Operative vaginal deliveries', code: '59409', text: 'Vaginal delivery, operative (forceps/vacuum)' },
+  { keywords: ['vbac', 'vaginal birth after cesarean'], category: 'Prior cesarean delivery', code: '59612', text: 'Vaginal delivery after previous cesarean' },
+  { keywords: ['repeat cesarean', 'repeat c-section', 'repeat csection'], category: 'Cesarean deliveries', code: '59514', text: 'Cesarean delivery, repeat' },
+  { keywords: ['primary cesarean', 'cesarean section', 'c-section', 'csection', 'cesarean delivery'], category: 'Cesarean deliveries', code: '59510', text: 'Cesarean delivery, primary' },
+  { keywords: ['postpartum hemorrhage', 'pph'], category: 'Postpartum hemorrhage and uterine inversion', code: null, text: 'Postpartum hemorrhage' },
+  { keywords: ['preeclampsia', 'eclampsia', 'hellp'], category: 'Hypertensive disorders of pregnancy', code: null, text: 'Hypertensive disorder of pregnancy' },
+  { keywords: ['preterm labor', 'ptl'], category: 'Spontaneous pre-term birth (including preterm labor/delivery, cervical insufficiency, PPROM)', code: null, text: 'Preterm labor' },
+  { keywords: ['total abdominal hysterectomy', 'tah'], category: 'Abdominal hysterectomy', code: '58150', text: 'Total abdominal hysterectomy' },
+  { keywords: ['total laparoscopic hysterectomy', 'tlh', 'laparoscopic hysterectomy'], category: 'Minimally invasive hysterectomy', code: '58571', text: 'Laparoscopic total hysterectomy' },
+  { keywords: ['vaginal hysterectomy'], category: 'Minimally invasive hysterectomy', code: '58260', text: 'Vaginal hysterectomy' },
+  { keywords: ['myomectomy'], category: 'Abdominal myomectomy', code: '58140', text: 'Myomectomy' },
+  { keywords: ['diagnostic laparoscopy', 'laparoscopy'], category: 'Operative laparoscopy', code: '49320', text: 'Diagnostic laparoscopy' },
+  { keywords: ['salpingectomy', 'oophorectomy', 'salpingo-oophorectomy', 'bso'], category: 'Operative laparoscopy', code: '58661', text: 'Laparoscopic salpingectomy/oophorectomy' },
+  { keywords: ['hysteroscopy'], category: 'Operative hysteroscopy', code: '58558', text: 'Hysteroscopy with biopsy/polypectomy' },
+  { keywords: ['dilation and curettage', 'd&c', 'd and c'], category: 'Dilation and curettage (non-obstetric)', code: '58120', text: 'Dilation and curettage' },
+  { keywords: ['leep', 'cone biopsy', 'conization'], category: 'Excisional procedures for preinvasive cervical disease', code: '57460', text: 'Cervical conization / LEEP' },
+  { keywords: ['sling', 'midurethral sling', 'incontinence procedure'], category: 'Surgical repair of urinary incontinence', code: '57288', text: 'Sling operation for stress incontinence' },
+  { keywords: ['pelvic organ prolapse', 'sacrocolpopexy', 'colporrhaphy'], category: 'Surgical repair of pelvic organ prolapse, including apical prolapse and colpocleisis', code: null, text: 'Pelvic organ prolapse repair' },
+  { keywords: ['staging laparotomy', 'debulking', 'ovarian cancer', 'endometrial cancer'], category: 'Exploratory laparotomy', code: null, text: 'Gynecologic oncology surgery' },
+  { keywords: ['iud placement', 'iud insertion', 'nexplanon', 'implant insertion'], category: 'Contraceptive counseling and management', code: '58300', text: 'Contraceptive device insertion' },
+  { keywords: ['dilation and evacuation', 'd&e', 'abortion'], category: 'Obstetrical D&E and D&C (miscarriage and abortion management)', code: null, text: 'Pregnancy termination procedure' },
+  { keywords: ['ivf', 'iui', 'infertility', 'ovulation induction'], category: 'Infertility and recurrent pregnancy loss', code: null, text: 'Infertility management/procedure' },
 ];
 
 function findFirst(text, regex) {
