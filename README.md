@@ -13,11 +13,13 @@ for General OB/GYN certification.
 - **Dashboard** showing progress toward your category minimums (set your
   own numbers from the current ABOG bulletin under Settings), grouped into
   Obstetrics / Gynecology / Other sections.
-- **Add cases by hand**, or **quick-add from a note**: paste a de-identified
-  snippet and the app suggests age, gestational age, delivery type,
-  procedure/CPT code, diagnosis, role, and category — you review and edit
-  before saving. Nothing is auto-saved, and the pasted text is discarded
-  unless you opt in to keep it.
+- **Add cases by hand**, or **quick-add from a note**: paste a short OR-note
+  line, or a full H&P / Assessment & Plan / Problem List, and the app
+  suggests age, gestational age, delivery type, procedure/CPT code,
+  diagnosis, role, and category — you review and edit before saving. Lines
+  that look like a name, DOB, MRN, or attending label are dropped before
+  parsing. Nothing is auto-saved, and the pasted text is discarded unless
+  you opt in to keep it.
 - **Built-in PHI check**: before any case is saved, free-text fields are
   scanned for things that look like names, SSNs, phone numbers, MRNs, or
   addresses, and you're asked to confirm before proceeding.

@@ -34,8 +34,39 @@ function findFirst(text, regex) {
   return m ? m[0] : null;
 }
 
+// Lines that look like an identifying-data label (from an H&P header block,
+// EHR banner, etc.) never contribute to the suggestions below, whatever they
+// contain — this runs before any other extraction.
+const PHI_LABEL_LINE_RE = /^\s*(patient(\s*name)?|name|dob|date of birth|mrn|medical record(\s*number)?|account\s*#?|ssn|social security(\s*number)?|address|phone|attending|provider|physician|referring (physician|provider))\s*[:#]/i;
+
+function stripIdentifyingLines(text) {
+  return text
+    .split('\n')
+    .filter((line) => !PHI_LABEL_LINE_RE.test(line))
+    .join('\n');
+}
+
+// H&P / consult / discharge-summary notes bury the actual diagnosis and
+// procedure inside an Assessment/Plan or Problem List section, surrounded by
+// HPI, PMH/PSH, meds, and social history that would otherwise pollute the
+// category match (e.g. a prior cesarean mentioned in PSH). When one of these
+// headers is present, scope procedure/diagnosis/complication matching to
+// that section instead of the whole note.
+const AUTHORITATIVE_HEADER_RE = /(assessment(\s*(and|&|\/)\s*plan)?|impression|a\s*\/\s*p|problem list|hospital course|procedures?\s+performed|^\s*plan)\s*:/im;
+const NEXT_HEADER_RE = /\n[ \t]*[A-Za-z][A-Za-z /&]{2,40}[ \t]*:/;
+
+function extractAuthoritativeSection(text) {
+  const match = AUTHORITATIVE_HEADER_RE.exec(text);
+  if (!match) return null;
+  const start = match.index;
+  const rest = text.slice(start + match[0].length);
+  const nextMatch = NEXT_HEADER_RE.exec(rest);
+  const end = nextMatch ? start + match[0].length + nextMatch.index : text.length;
+  return text.slice(start, end);
+}
+
 function parseNote(rawText) {
-  const text = (rawText || '').toString();
+  const text = stripIdentifyingLines((rawText || '').toString());
   const lower = text.toLowerCase();
   const suggestions = {};
 
@@ -88,6 +119,12 @@ function parseNote(rawText) {
   else if (/\bshort[-\s]?stay\b|\b23[-\s]?hour\b/.test(lower)) suggestions.setting = 'Short-Stay';
   else suggestions.setting = 'Inpatient';
 
+  // If the note has an Assessment/Plan/Problem List/Hospital Course section,
+  // scan that instead of the whole note so history sections (PMH, PSH, social
+  // history) don't get mistaken for what this case actually is.
+  const authoritative = extractAuthoritativeSection(text);
+  const scanLower = (authoritative || text).toLowerCase();
+
   // Complications
   const complicationKeywords = [
     'hemorrhage', 'laceration', 'infection', 'transfusion', 'reoperation',
@@ -95,12 +132,18 @@ function parseNote(rawText) {
   ];
   const negations = /\b(no|none|denies|without|negative for|no evidence of|uncomplicated)\b/;
   const foundComplications = complicationKeywords.filter((k) => {
-    const idx = lower.indexOf(k);
+    const idx = scanLower.indexOf(k);
     if (idx === -1) return false;
-    // Look at the few words immediately before the keyword for a negation
-    // ("no complications", "without hemorrhage") so a clean note doesn't
-    // get flagged as having a complication it explicitly ruled out.
-    const preceding = lower.slice(Math.max(0, idx - 20), idx);
+    // Look back to the start of the current clause for a negation, so a
+    // negated list ("no evidence of hemorrhage or infection") clears every
+    // item in it, not just the one right after the negation word.
+    const clauseStart = Math.max(
+      scanLower.lastIndexOf('.', idx),
+      scanLower.lastIndexOf(';', idx),
+      scanLower.lastIndexOf('\n', idx),
+      idx - 200,
+    ) + 1;
+    const preceding = scanLower.slice(clauseStart, idx);
     return !negations.test(preceding);
   });
   if (foundComplications.length) {
@@ -109,7 +152,7 @@ function parseNote(rawText) {
 
   // Procedure / category match — first hit wins, ordered by specificity above.
   for (const entry of PROCEDURE_LOOKUP) {
-    if (entry.keywords.some((k) => lower.includes(k))) {
+    if (entry.keywords.some((k) => scanLower.includes(k))) {
       suggestions.category_name = entry.category;
       suggestions.procedure_text = entry.text;
       if (!suggestions.procedure_code && entry.code) suggestions.procedure_code = entry.code;

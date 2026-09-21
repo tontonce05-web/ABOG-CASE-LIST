@@ -11,11 +11,11 @@
     <% if (!isEdit) { %>
     <div class="note-box">
       <h3>Quick add from a note</h3>
-      <p class="small muted">Paste a de-identified snippet of your note below and click Parse. It will suggest values for the fields below — review and correct them before saving. The note text itself is discarded unless you check "keep note" after parsing.</p>
+      <p class="small muted">Paste a note below and click Parse — a short OR-note line, or a full H&amp;P / Assessment &amp; Plan / Problem List. Any line that looks like a name, DOB, MRN, or attending label is dropped automatically before parsing. Review and correct the suggested fields before saving — the note text itself is discarded unless you check "keep note" after parsing.</p>
       <form method="POST" action="/cases/parse">
         <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
         <div class="field-group">
-          <textarea name="source_note" rows="4" placeholder="e.g. 34 y/o G2P1 at 39w2d, primary low transverse cesarean section for arrest of dilation, attending surgeon, no complications..."><%= sourceNote %></textarea>
+          <textarea name="source_note" rows="6" placeholder="e.g. Assessment and Plan: 1. Intrauterine pregnancy at 39w2d - proceed with repeat cesarean delivery today. 2. No evidence of hemorrhage or infection postoperatively."><%= sourceNote %></textarea>
         </div>
         <button type="submit" class="btn-secondary">Parse note</button>
       </form>
