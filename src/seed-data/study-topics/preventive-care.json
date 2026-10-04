@@ -1,0 +1,236 @@
+[
+  {
+    "title": "Well-Woman Visit and Preventive Care Periodicity",
+    "section": "Preventive Care",
+    "summary": "At least one preventive visit per year from adolescence through life is recommended to deliver age- and risk-based screening, counseling, and immunizations; content varies by life stage rather than a fixed checklist.",
+    "key_points": [
+      "WPSI: at least 1 preventive visit/year, adolescence through adulthood, no upper age limit",
+      "Services can be delivered across a series of visits, not only a single annual exam",
+      "Visit scope includes prepregnancy, prenatal, postpartum, and interconception care",
+      "Content is tailored by age, reproductive/pregnancy status, and individual risk factors",
+      "Core elements: psychosocial/physical function assessment, screening, immunizations, counseling, risk-factor review",
+      "No pelvic exam or Pap test is required at every annual visit for an asymptomatic average-risk patient",
+      "Annual visit is also the anchor point for cervical/breast/STI screening intervals and contraceptive counseling"
+    ],
+    "management": [
+      "Use the visit to reconcile which age/risk-based screenings (cervical, breast, STI, mental health, IPV) are due",
+      "Assess pregnancy intention and reproductive life plan at every visit in reproductive-age patients",
+      "Update immunizations (HPV, Tdap, influenza, COVID, others per age/risk)",
+      "Screen for IPV, depression/anxiety, and substance/tobacco use as part of routine psychosocial assessment",
+      "Tailor exam components (pelvic, breast) to symptoms and risk rather than performing by default",
+      "Document risk factors to set the interval for the next visit's focused screening"
+    ],
+    "citations": [
+      "WPSI, Well-Woman Preventive Visits (current edition — verify at womenspreventivehealth.org)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Breast Cancer Screening and Risk Assessment",
+    "section": "Preventive Care",
+    "summary": "Average-risk women are offered mammography starting between ages 40-50 and continuing at least through age 74, while all women should have periodic breast-cancer risk assessment to identify candidates for genetic counseling/BRCA testing.",
+    "key_points": [
+      "WPSI (average risk): initiate mammography no earlier than 40, no later than 50; at least biennial, up to annual",
+      "Continue screening mammography through at least age 74 in average-risk women",
+      "All women should undergo periodic risk assessment for breast/ovarian/tubal/peritoneal cancer, including family history and ancestry",
+      "Positive risk screen -> refer for formal genetic counseling before any genetic testing",
+      "High-risk women (known BRCA1/2, prior chest radiation, strong family history) need individualized surveillance beyond average-risk schedule",
+      "Validated risk-assessment tools (e.g., family-history-based models) help decide who needs referral, not who needs testing directly",
+      "Clinical breast exam and self-exam are not relied on as primary screening in asymptomatic average-risk women"
+    ],
+    "management": [
+      "Ask about personal and family history of breast/ovarian/tubal/peritoneal cancer at periodic visits",
+      "Use a structured tool/questionnaire to flag increased-risk patients for further workup",
+      "Refer positive screens to genetic counseling before ordering BRCA or other genetic testing",
+      "Shared decision-making on start age (40 vs 45-50) and interval (annual vs biennial) for average-risk patients",
+      "Escalate high-risk patients (BRCA+, prior thoracic radiation) to enhanced surveillance (earlier start, added MRI)",
+      "Reassess risk status periodically, since family history and personal risk can change over time"
+    ],
+    "citations": [
+      "WPSI, Breast Cancer Screening for Women at Average Risk (current edition — verify at womenspreventivehealth.org)",
+      "USPSTF, Breast Cancer: Screening; Risk Assessment, Genetic Counseling, and Genetic Testing for BRCA-Related Cancer (current edition — verify at uspreventiveservicestaskforce.org)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Screening for Interpersonal and Domestic Violence (IPV)",
+    "section": "Preventive Care",
+    "summary": "Adolescent girls and women should be screened at least annually for interpersonal/domestic violence using a validated tool, with intervention or referral services available on-site when screens are positive.",
+    "key_points": [
+      "WPSI: screen all adolescent and adult women at least annually for IPV/domestic violence",
+      "Definition spans physical, sexual, psychological, and reproductive coercion, stalking, and neglect",
+      "Higher-risk groups: pregnant patients, very young/older patients, LGBTQ+, those with disabilities or substance use",
+      "Validated brief screening tools exist with adequate sensitivity/specificity for clinical use",
+      "Screening should occur in private, without partner/family present, with a plan for safe disclosure",
+      "A positive screen requires same-visit safety assessment, not just documentation"
+    ],
+    "management": [
+      "Screen privately and confidentially at least annually, including during pregnancy",
+      "Use a brief validated screening instrument rather than an open-ended unscreened question alone",
+      "If positive, assess immediate safety and document using neutral, nonjudgmental language",
+      "Provide or refer for intervention services: counseling, advocacy, legal/social resources, shelters",
+      "Know mandatory reporting requirements and local resources before the encounter",
+      "Reassess at subsequent visits, since risk and disclosure can change over time"
+    ],
+    "citations": [
+      "WPSI, Screening and Counseling for Interpersonal and Domestic Violence (current edition — verify at womenspreventivehealth.org)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Screening for Anxiety and Depression in Women",
+    "section": "Preventive Care",
+    "summary": "Women and adolescent girls age 13 and older, including during pregnancy and postpartum, should be periodically screened for anxiety and depression with validated instruments and a clear follow-up pathway for positive results.",
+    "key_points": [
+      "WPSI: screen women/girls >=13 years for anxiety; USPSTF: screen all adults, including pregnant/postpartum, for depression",
+      "Perinatal screening instrument example: Edinburgh Postnatal Depression Scale (EPDS)",
+      "General adult/anxiety tools cited include GAD-7, PHQ-4, Hospital Anxiety and Depression Scale (HADS)",
+      "Optimal screening interval is not firmly established; use clinical judgment for frequency",
+      "Screening must be paired with systems for accurate diagnosis and follow-up, not screening alone",
+      "Applies across pregnancy, postpartum, and nonpregnant adult life stages"
+    ],
+    "management": [
+      "Administer a validated combined or separate anxiety/depression tool at periodic/perinatal visits",
+      "Screen for depression and anxiety at intake prenatal visit, again later in pregnancy, and postpartum",
+      "Confirm diagnosis clinically (not on screening score alone) before initiating treatment",
+      "Initiate or refer for counseling/psychotherapy and consider pharmacotherapy per severity",
+      "Assess suicidality/safety whenever a screen is positive",
+      "Arrange follow-up visit to reassess symptom trajectory and treatment response",
+      "Coordinate with behavioral health/psychiatry for refractory or severe perinatal mood/anxiety disorders"
+    ],
+    "citations": [
+      "WPSI, Screening for Anxiety in Adolescent and Adult Women (current edition — verify at womenspreventivehealth.org)",
+      "USPSTF, Depression and Suicide Risk in Adults: Screening (current edition — verify at uspreventiveservicestaskforce.org)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Preconception Counseling and Folic Acid Supplementation",
+    "section": "Preventive Care",
+    "summary": "All women of reproductive potential should be counseled on reproductive life planning and take a daily folic acid supplement (0.4-0.8 mg) before conception and through early pregnancy to reduce neural tube defect risk.",
+    "key_points": [
+      "USPSTF (Grade A): all women planning or capable of pregnancy take 0.4-0.8 mg folic acid daily",
+      "Begin supplementation at least 1 month before conception; continue through roughly first 2-3 months of pregnancy",
+      "Higher dose (up to 4 mg/day) considered for women with prior NTD-affected pregnancy or other high-risk factors",
+      "Preconception counseling (reproductive life plan, chronic disease optimization, teratogen review) is part of routine well-woman care, not a standalone USPSTF item",
+      "Address chronic conditions (diabetes, hypertension, thyroid, obesity), medications, and vaccinations before conception",
+      "Screen for and address substance/tobacco/alcohol use as part of preconception counseling"
+    ],
+    "management": [
+      "Ask every reproductive-age patient about pregnancy intention at routine visits",
+      "Prescribe/recommend daily folic acid 0.4-0.8 mg for anyone who could become pregnant",
+      "Escalate to high-dose folic acid (up to 4 mg) for prior NTD pregnancy or other elevated risk",
+      "Optimize chronic disease control (A1c, blood pressure, thyroid) before conception attempts",
+      "Review and adjust teratogenic medications ahead of planned pregnancy",
+      "Update vaccinations (e.g., MMR, varicella immunity) and address substance use before conception",
+      "Reinforce folic acid continuation into early pregnancy at the first prenatal visit"
+    ],
+    "citations": [
+      "USPSTF, Folic Acid for the Prevention of Neural Tube Defects: Preventive Medication (current edition — verify at uspreventiveservicestaskforce.org)",
+      "ACOG, Preconception Care Committee Opinion/Practice guidance (current edition — verify at acog.org)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Osteoporosis Screening",
+    "section": "Preventive Care",
+    "summary": "Women 65 and older should be screened for osteoporosis with central DXA bone density testing; postmenopausal women under 65 are screened only if a risk-assessment tool shows elevated fracture risk.",
+    "key_points": [
+      "USPSTF: screen all women >=65 years with central DXA BMD, with or without fracture risk assessment",
+      "Postmenopausal women <65: first check for risk factors, then use a clinical risk-assessment tool (e.g., FRAX) before deciding on DXA",
+      "Only proceed to DXA in the under-65 group if the risk tool indicates risk equivalent to a 65-year-old",
+      "2024 USPSTF update specifies central DXA (not peripheral/other bone measurement tests) as the screening method",
+      "Evidence is insufficient to recommend for or against routine screening in men",
+      "Secondary causes (steroid use, hyperthyroidism, malabsorption) warrant evaluation outside the routine screening pathway"
+    ],
+    "management": [
+      "Screen all women 65+ with central DXA regardless of risk factors",
+      "For postmenopausal women <65, apply a validated fracture risk tool before ordering DXA",
+      "Order DXA when risk-tool output meets the age-65-equivalent threshold",
+      "Counsel on calcium/vitamin D intake, weight-bearing exercise, and fall-prevention regardless of DXA result",
+      "Treat confirmed osteoporosis (T-score <=-2.5) or high fracture risk with pharmacotherapy per guidelines",
+      "Repeat DXA interval individualized to baseline T-score and risk profile, not a fixed universal interval"
+    ],
+    "citations": [
+      "USPSTF, Osteoporosis to Prevent Fractures: Screening (2024 update — verify at uspreventiveservicestaskforce.org)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Breastfeeding Support and Counseling",
+    "section": "Preventive Care",
+    "summary": "Comprehensive lactation support — counseling, education, peer support, and breast-pump/supply access — should be provided across the antenatal, perinatal, and postpartum periods to help initiate and sustain breastfeeding.",
+    "key_points": [
+      "WPSI: comprehensive lactation support services recommended across antenatal, perinatal, and postpartum periods",
+      "Services include consultation/counseling/education by clinicians and trained peer supporters",
+      "Covered equipment/supplies include double electric breast pumps and milk storage supplies",
+      "Access to a double electric pump should not require prior failure of a manual pump",
+      "Eligible lactation care providers include IBCLCs, breastfeeding counselors, midwives, APPs, and physicians",
+      "Support should begin prenatally, not only after delivery, to optimize initiation"
+    ],
+    "management": [
+      "Discuss breastfeeding intentions and address barriers at prenatal visits",
+      "Arrange lactation consultation proactively, not only after problems arise postpartum",
+      "Ensure access to a double electric breast pump and storage supplies without unnecessary prior-failure requirements",
+      "Provide anticipatory guidance on latch, milk supply, and common early complications (engorgement, mastitis)",
+      "Involve peer counselors/support groups for ongoing postpartum encouragement",
+      "Coordinate with pediatric care team for feeding/weight follow-up in the newborn period"
+    ],
+    "citations": [
+      "WPSI, Breastfeeding Services and Supplies (current edition — verify at womenspreventivehealth.org)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "HPV Vaccination",
+    "section": "Preventive Care",
+    "summary": "Routine HPV vaccination starts at age 11-12 (can begin at 9), with catch-up through age 26, and shared clinical decision-making for select adults age 27-45 who were not adequately vaccinated earlier.",
+    "key_points": [
+      "ACIP: routine vaccination at age 11-12 years; series can start as early as age 9",
+      "Catch-up vaccination recommended through age 26 for anyone not previously fully vaccinated",
+      "Shared clinical decision-making applies to adults age 27-45 based on individual risk/benefit",
+      "2-dose schedule (0, 6-12 months) if series starts before the 15th birthday",
+      "3-dose schedule (0, 1-2, 6 months) if starting at/after age 15, or if immunocompromised",
+      "Vaccination is recommended regardless of prior HPV exposure, Pap/HPV test results, or sexual activity history"
+    ],
+    "management": [
+      "Recommend initiation at age 11-12 at well-child/adolescent visits; may start at 9",
+      "Use the 2-dose schedule for series started before age 15; switch to 3-dose if started at 15+ or immunocompromised",
+      "Offer catch-up vaccination to any unvaccinated or incompletely vaccinated patient through age 26",
+      "Engage in shared decision-making for interested patients age 27-45 not previously fully vaccinated",
+      "Do not delay or withhold vaccination pending cervical cytology/HPV test results",
+      "Document doses given/needed and track completion at subsequent visits"
+    ],
+    "citations": [
+      "CDC/ACIP, Human Papillomavirus (HPV) Vaccination: Recommendations (current edition — verify at cdc.gov)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Tobacco Use Screening and Cessation Counseling",
+    "section": "Preventive Care",
+    "summary": "All adults, including pregnant patients, should be asked about tobacco use at every visit and offered tailored behavioral cessation support, with pregnancy-specific counseling intensity and caution on pharmacotherapy in pregnancy.",
+    "key_points": [
+      "USPSTF (Grade A): ask all adults about tobacco use; provide cessation interventions for users",
+      "USPSTF (Grade A): ask all pregnant persons about tobacco use, advise cessation, and provide behavioral interventions",
+      "Pregnancy-tailored counseling (5-15 minutes, pregnancy-specific self-help materials) is more effective than brief advice alone",
+      "Evidence is insufficient (Grade I) on pharmacotherapy benefit/harm for tobacco cessation specifically in pregnancy",
+      "Nonpregnant adults: combine behavioral counseling with FDA-approved pharmacotherapy as first-line",
+      "Evidence is insufficient to recommend e-cigarettes for cessation in any adult population, including pregnant persons",
+      "Use the 5 A's framework (Ask, Advise, Assess, Assist, Arrange) to structure the encounter"
+    ],
+    "management": [
+      "Ask about tobacco use and document status at every visit, pregnant or not",
+      "Advise all users to quit with a clear, personalized message",
+      "Assess readiness/willingness to quit before choosing an intervention",
+      "In nonpregnant adults, assist with both behavioral counseling and FDA-approved pharmacotherapy",
+      "In pregnant patients, assist with augmented pregnancy-tailored behavioral counseling as first-line; use pharmacotherapy only with individualized risk-benefit discussion",
+      "Arrange follow-up to support quit attempts and address relapse",
+      "Avoid recommending e-cigarettes as a cessation method given insufficient evidence"
+    ],
+    "citations": [
+      "USPSTF, Tobacco Use in Adults and Pregnant Persons: Counseling and Interventions (current edition — verify at uspreventiveservicestaskforce.org)"
+    ],
+    "last_reviewed": "2026-10-04"
+  }
+]
