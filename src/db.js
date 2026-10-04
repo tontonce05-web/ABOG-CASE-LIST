@@ -66,6 +66,25 @@ CREATE TABLE IF NOT EXISTS audit_log (
   detail TEXT,
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
+
+-- Study & References: board-review topics. No patient data ever lives
+-- here, so none of the PHI/audit safeguards that apply to the cases
+-- table are needed on this table.
+CREATE TABLE IF NOT EXISTS study_topics (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title TEXT NOT NULL,
+  section TEXT NOT NULL DEFAULT 'Obstetrics',
+  summary TEXT,
+  key_points TEXT,
+  management TEXT,
+  citations TEXT,
+  last_reviewed TEXT,
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+CREATE INDEX IF NOT EXISTS idx_study_topics_section ON study_topics(section);
 `);
 
 // --- Default settings ---
@@ -128,6 +147,42 @@ if (categoryCount === 0) {
     rows.forEach(([name, section, min], i) => insert.run(name, section, min, i));
   });
   tx(defaultCategories);
+}
+
+// --- Seed Study & References topics from the bundled JSON files on first
+// run only (never overwrites or duplicates — if the table already has
+// rows, e.g. the user added/edited their own, this is a no-op). More
+// batches can be added later as new files in src/seed-data/study-topics/
+// and loaded into an *existing* database with scripts/seed-study-topics.js,
+// which is idempotent by title. ---
+const studyTopicCount = db.prepare('SELECT COUNT(*) AS c FROM study_topics').get().c;
+if (studyTopicCount === 0) {
+  const seedDir = path.join(__dirname, 'seed-data', 'study-topics');
+  if (fs.existsSync(seedDir)) {
+    const insertTopic = db.prepare(
+      `INSERT INTO study_topics (title, section, summary, key_points, management, citations, last_reviewed, sort_order)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
+    );
+    let order = 0;
+    const tx = db.transaction((topics) => {
+      for (const t of topics) {
+        insertTopic.run(
+          t.title,
+          t.section,
+          t.summary || null,
+          (t.key_points || []).join('\n'),
+          (t.management || []).join('\n'),
+          (t.citations || []).join('\n'),
+          t.last_reviewed || null,
+          order++
+        );
+      }
+    });
+    for (const file of fs.readdirSync(seedDir).filter((f) => f.endsWith('.json')).sort()) {
+      const topics = JSON.parse(fs.readFileSync(path.join(seedDir, file), 'utf8'));
+      tx(topics);
+    }
+  }
 }
 
 module.exports = { db, getSetting, setSetting };

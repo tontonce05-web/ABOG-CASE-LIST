@@ -1,0 +1,164 @@
+[
+  {
+    "title": "Hypertensive Disorders of Pregnancy",
+    "section": "Obstetrics",
+    "summary": "A spectrum from gestational hypertension to preeclampsia with severe features, eclampsia, and HELLP syndrome, defined by escalating blood pressure thresholds and end-organ findings that drive delivery timing and seizure prophylaxis decisions.",
+    "key_points": [
+      "Gestational HTN: SBP ≥140 or DBP ≥90 on 2 readings ≥4h apart, after 20 wks, in a previously normotensive patient",
+      "Preeclampsia = gestational HTN + proteinuria (≥300mg/24h, P/C ratio ≥0.3) OR new end-organ dysfunction even without proteinuria",
+      "Severe features: BP ≥160/110, platelets <100,000, Cr >1.1 or doubled, LFTs 2x normal, pulmonary edema, new cerebral/visual symptoms",
+      "HELLP = Hemolysis, Elevated Liver enzymes, Low Platelets; a severe variant that can occur with minimal BP elevation",
+      "Eclampsia = new-onset tonic-clonic seizure in preeclampsia not attributable to another cause",
+      "Sustained severe-range BP (≥160/110) for ≥15 min is a hypertensive emergency requiring treatment within 30-60 min",
+      "Low-dose aspirin (81mg) started 12-28 wks (ideally <16wks) reduces risk in those at high risk for preeclampsia"
+    ],
+    "management": [
+      "Treat severe-range BP urgently with IV labetalol, IV hydralazine, or oral immediate-release nifedipine",
+      "Give magnesium sulfate for seizure prophylaxis with severe features, and as first-line treatment for eclamptic seizures",
+      "Deliver preeclampsia without severe features/gestational HTN at ≥37 weeks",
+      "Deliver preeclampsia with severe features at ≥34 weeks after maternal stabilization",
+      "Expectant management <34 weeks only in a tertiary setting with close maternal/fetal surveillance",
+      "Deliver immediately regardless of gestational age if maternal or fetal status is unstable",
+      "Manage HELLP like severe preeclampsia; strongly consider delivery given maternal risk regardless of GA"
+    ],
+    "citations": [
+      "ACOG Practice Bulletin No. 222, \"Gestational Hypertension and Preeclampsia\" (2020, verify current status at acog.org)",
+      "ACOG Practice Bulletin, \"Chronic Hypertension in Pregnancy\" (current edition — verify at acog.org)",
+      "ACOG/SMFM guidance on magnesium sulfate use in obstetrics for seizure prophylaxis"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Postpartum Hemorrhage",
+    "section": "Obstetrics",
+    "summary": "Defined by quantitative blood loss thresholds rather than visual estimation, with management organized around a readiness-recognition-response-reporting bundle and stage-based escalation of uterotonics and procedural interventions.",
+    "key_points": [
+      "Defined as cumulative blood loss ≥1000mL, or any blood loss with signs/symptoms of hypovolemia, within 24h of birth",
+      "Quantitative blood loss measurement (graduated drapes, weighing) is preferred over visual estimation, which underestimates loss",
+      "Uterine atony causes ~70-80% of cases; recall the \"4 Ts\": Tone, Trauma, Tissue, Thrombin",
+      "Risk stratification (low/medium/high) should be assessed on admission and reassessed through labor",
+      "Response is organized in escalating stages from prevention through massive hemorrhage protocols",
+      "Early, multidisciplinary team activation improves outcomes more than any single medication"
+    ],
+    "management": [
+      "Give prophylactic oxytocin to all patients as active management of the third stage",
+      "First-line for atony: uterine massage plus oxytocin; add second-line uterotonics (methylergonovine, carboprost, misoprostol) if bleeding continues",
+      "Give tranexamic acid 1g IV within 3 hours of hemorrhage onset; repeat once if bleeding persists",
+      "Escalate to intrauterine balloon tamponade or compression sutures for refractory atony",
+      "Activate massive transfusion protocol and call for additional help early, not after decompensation",
+      "Consider uterine artery embolization or ligation, and hysterectomy for life-threatening refractory hemorrhage"
+    ],
+    "citations": [
+      "ACOG Practice Bulletin No. 183, \"Postpartum Hemorrhage\" (2017, verify current status at acog.org)",
+      "ACOG Committee Opinion No. 794, \"Quantitative Blood Loss in Obstetric Hemorrhage\" (2019)",
+      "Council on Patient Safety in Women's Health Care / AIM Obstetric Hemorrhage Patient Safety Bundle (current edition — verify at saferbirth.org)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Preterm Labor and Preterm Birth Prevention",
+    "section": "Obstetrics",
+    "summary": "Covers diagnosis of preterm labor and the evidence-based toolkit to improve neonatal outcomes — short-course tocolysis, antenatal corticosteroids, magnesium for neuroprotection, and progesterone for recurrence prevention — now reflecting the 2023 withdrawal of 17-OHPC.",
+    "key_points": [
+      "Preterm labor = regular contractions with cervical change before 37 0/7 weeks",
+      "Antenatal corticosteroids recommended 24 0/7-33 6/7 wks, and considered 34 0/7-36 6/7 wks, if delivery risk within 7 days",
+      "In the periviable window (22-25 6/7 wks), corticosteroids may be considered at 23 0/7-23 6/7 wks after counseling if resuscitation is planned",
+      "Magnesium sulfate for fetal neuroprotection is used <32 weeks when delivery is anticipated within 24 hours",
+      "Tocolysis (nifedipine, indomethacin) is short-term (~48h) to allow steroid/magnesium administration or transport, not indefinite pregnancy prolongation",
+      "Vaginal progesterone is recommended for singleton pregnancy with a short cervix (≤25mm before 24 weeks)",
+      "17-alpha hydroxyprogesterone caproate (Makena) was withdrawn from the US market in April 2023 for lack of efficacy"
+    ],
+    "management": [
+      "Confirm diagnosis with cervical exam; fetal fibronectin or cervical length can help rule out preterm labor when exam is equivocal",
+      "Give a single course of antenatal corticosteroids if gestational age and delivery risk criteria are met",
+      "Start short-course tocolysis (indomethacin <32wk, or nifedipine) to permit steroid/magnesium administration and transport",
+      "Give magnesium sulfate for neuroprotection if <32 weeks and delivery is imminent",
+      "Avoid prolonging tocolysis beyond 48 hours; it does not improve neonatal outcomes used long-term",
+      "Consider a single rescue course of corticosteroids if ≥14 days since the first course and new risk of delivery within 7 days, <34 weeks",
+      "Discontinue any ongoing 17-OHPC and discuss vaginal progesterone as the evidence-based alternative when indicated"
+    ],
+    "citations": [
+      "ACOG Practice Bulletin, \"Management of Preterm Labor\" (current edition — verify at acog.org)",
+      "ACOG/SMFM Practice Advisory, \"Use of Antenatal Corticosteroids at 22 Weeks of Gestation\" (2021)",
+      "SMFM Statement, response to FDA withdrawal of 17-hydroxyprogesterone caproate (2023)",
+      "ACOG/SMFM guidance on magnesium sulfate for fetal neuroprotection before anticipated preterm birth (current edition — verify at acog.org)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "PPROM and Term PROM Management",
+    "section": "Obstetrics",
+    "summary": "Management balances infection and abruption risk against prematurity, generally favoring expectant management for PPROM between 24-33 6/7 weeks and delivery at or beyond 34 weeks or at term.",
+    "key_points": [
+      "Diagnosis relies on pooling, ferning, and nitrazine-positive fluid, supported by ultrasound oligohydramnios",
+      "PPROM = membrane rupture before 37 weeks; term PROM = rupture at ≥37 weeks before labor begins",
+      "Latency to delivery is generally longer the earlier the gestational age at rupture",
+      "Major risks of PPROM: chorioamnionitis, placental abruption, cord compression/prolapse, and preterm birth",
+      "Expectant management is generally recommended 24-33 6/7 weeks absent a contraindication",
+      "Most patients with term PROM labor spontaneously within 24 hours of rupture"
+    ],
+    "management": [
+      "Confirm gestational age, rule out infection, abruption, or nonreassuring fetal status, and assess fetal presentation",
+      "For PPROM 24-33 6/7 wks: admit, give latency antibiotics (ampicillin/azithromycin-based regimen), a single corticosteroid course, and GBS prophylaxis at delivery",
+      "Give magnesium sulfate for neuroprotection if <32 weeks and delivery is imminent",
+      "Monitor daily for infection, abruption, or labor; deliver promptly for chorioamnionitis, abruption, or nonreassuring status",
+      "Proceed to delivery at 34 0/7 weeks rather than continued expectant management",
+      "For term PROM, offer immediate induction (reduces infection risk) versus a limited period of expectant management with GBS prophylaxis as indicated"
+    ],
+    "citations": [
+      "ACOG Practice Bulletin No. 217, \"Prelabor Rupture of Membranes\" (2020, verify current status at acog.org)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Gestational Diabetes Mellitus",
+    "section": "Obstetrics",
+    "summary": "Universal screening at 24-28 weeks using either a one-step or two-step approach, with management stepping from lifestyle therapy to insulin and delivery timing individualized by glycemic control.",
+    "key_points": [
+      "Universal screening at 24-28 weeks; ACOG accepts either a one-step 75g 2h OGTT or a two-step 50g GLT followed by 100g 3h OGTT",
+      "Two-step diagnostic (Carpenter-Coustan): fasting ≥95, 1h ≥180, 2h ≥155, 3h ≥140 mg/dL; ≥2 abnormal values = GDM",
+      "One-step (IADPSG) diagnostic: fasting ≥92, 1h ≥180, or 2h ≥153 mg/dL; any single abnormal value = GDM",
+      "Early pregnancy screening is recommended for patients with risk factors (obesity, prior GDM, PCOS, family history) to detect pre-existing diabetes",
+      "A1GDM = diet-controlled; A2GDM = requires medication",
+      "Key complications: fetal macrosomia, shoulder dystocia, neonatal hypoglycemia, and future maternal type 2 diabetes risk"
+    ],
+    "management": [
+      "First-line therapy: medical nutrition therapy, carbohydrate counting, exercise, and self blood-glucose monitoring",
+      "Glycemic targets: fasting <95 mg/dL, 1h postprandial <140 mg/dL, 2h postprandial <120 mg/dL",
+      "If lifestyle measures fail to reach targets, insulin is first-line pharmacotherapy; metformin or glyburide are alternatives",
+      "Initiate antenatal fetal surveillance for A2GDM or when additional risk factors are present",
+      "Deliver well-controlled A1GDM at 39-40 6/7 weeks and well-controlled A2GDM at 39-39 6/7 weeks; deliver earlier if poorly controlled",
+      "Screen for persistent diabetes postpartum with a 75g 2h OGTT at 4-12 weeks, and counsel on lifelong type 2 diabetes risk"
+    ],
+    "citations": [
+      "ACOG Practice Bulletin No. 190, \"Gestational Diabetes Mellitus\" (2018, verify current status at acog.org)",
+      "ACOG Clinical Practice Update, \"Screening for Gestational and Pregestational Diabetes in Pregnancy and Postpartum\" (2024)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Shoulder Dystocia",
+    "section": "Obstetrics",
+    "summary": "An unpredictable obstetric emergency requiring a stepwise maneuver sequence beginning with McRoberts positioning, with meticulous post-delivery documentation to support later review.",
+    "key_points": [
+      "Defined as delivery requiring additional maneuvers beyond gentle downward traction to deliver the fetal shoulders",
+      "Risk factors include macrosomia, maternal diabetes/GDM, prior shoulder dystocia, and operative vaginal delivery",
+      "Most cases occur without identifiable risk factors and are not reliably predictable or preventable",
+      "The \"turtle sign\" (head retraction against the perineum) is the classic presenting finding",
+      "Key complications: brachial plexus injury (usually transient), clavicle or humerus fracture, hypoxic injury, and maternal trauma/PPH",
+      "Fundal pressure and excessive head traction are associated with neurologic injury and should be avoided"
+    ],
+    "management": [
+      "Call for additional help immediately (obstetric, nursing, anesthesia, pediatric support) and note the time of head delivery",
+      "Perform McRoberts maneuver (maternal hip hyperflexion) first — often sufficient alone",
+      "Apply suprapubic pressure in conjunction with McRoberts",
+      "If unsuccessful, proceed to internal rotational maneuvers (Rubin, Woods screw) or delivery of the posterior arm",
+      "Consider additional maneuvers such as the all-fours (Gaskin) position; episiotomy may aid access but does not relieve bony impaction",
+      "Document thoroughly afterward: time of head and body delivery, maneuvers used and sequence, personnel present, and infant condition"
+    ],
+    "citations": [
+      "ACOG Practice Bulletin No. 178, \"Shoulder Dystocia\" (2017, verify current status at acog.org)"
+    ],
+    "last_reviewed": "2026-10-04"
+  }
+]

@@ -1,0 +1,162 @@
+[
+  {
+    "title": "Endometriosis",
+    "section": "Gynecology",
+    "summary": "A presumptive clinical diagnosis based on symptoms and exam/imaging is now sufficient to start treatment, reserving surgery for refractory or fertility-related cases.",
+    "key_points": [
+      "Suspect with dysmenorrhea, deep dyspareunia, dyschezia, dysuria, chronic pelvic pain, or infertility",
+      "Clinical diagnosis (history + exam +/- imaging) is sufficient to start empiric treatment; laparoscopy is not required first",
+      "Transvaginal ultrasound is first-line imaging; MRI or expert ultrasound if deep infiltrating disease suspected",
+      "ASRM revised staging (I-IV) scores implants, adhesions, and cul-de-sac obliteration",
+      "An endometrioma automatically makes the disease at least stage III; obliterated cul-de-sac is stage IV",
+      "Definitive diagnosis is histologic at surgery, but this is not a prerequisite for treating symptoms",
+      "Deep disease can involve bowel, bladder, or ureter — assess before planning surgery"
+    ],
+    "management": [
+      "First line: NSAIDs plus combined hormonal contraceptives or progestin-only therapy, started empirically",
+      "Second line for refractory pain: GnRH agonist or antagonist, with add-back therapy to limit bone/vasomotor effects",
+      "Conservative laparoscopic excision/ablation of lesions plus adhesiolysis for pain or fertility goals",
+      "For stage III/IV with infertility, surgery can improve spontaneous conception; repeat surgery rarely helps further",
+      "IVF is generally preferred over repeat surgery after an initial surgical attempt fails",
+      "No proven fertility benefit from hormonal therapy immediately before or after fertility-focused surgery",
+      "Hysterectomy (+/- oophorectomy) reserved as last resort for refractory disease after other options fail"
+    ],
+    "citations": [
+      "ACOG Clinical Practice Guideline No. 11, \"Diagnosis of Endometriosis\" (2026)",
+      "ASRM Practice Committee, endometriosis staging and surgical management guidance (current edition — verify at asrm.org)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Adnexal Mass Evaluation and Ovarian Cancer Risk Stratification",
+    "section": "Gynecology",
+    "summary": "Most adnexal masses are benign even after menopause; ultrasound morphology plus selective use of tumor markers and risk indices determines who needs gyn oncology referral.",
+    "key_points": [
+      "Most adnexal masses, including in postmenopausal patients, are benign",
+      "Quality transvaginal ultrasound (accredited sonographer) is the primary imaging test",
+      "Simple cysts up to 10 cm can be followed with serial ultrasound rather than immediate surgery, even postmenopausally",
+      "CA-125 is more useful postmenopausally; premenopausally it is nonspecific (elevated with fibroids, endometriosis, PID)",
+      "Multivariate risk indices (e.g., OVA1, ROMA) help stratify indeterminate masses",
+      "Malignancy red flags: solid components, papillary projections, ascites, high color Doppler flow, bilaterality"
+    ],
+    "management": [
+      "Low-risk simple cyst: expectant management with repeat ultrasound (commonly around 6 months)",
+      "Indeterminate ultrasound findings: apply a validated risk-stratification tool before deciding on surgery",
+      "High-risk features (solid/papillary components, ascites, markedly elevated CA-125): refer to gynecologic oncology before any surgery",
+      "Premenopausal low-risk masses often resolve spontaneously; avoid unnecessary surgical intervention",
+      "When surgery is needed for a presumed-benign mass, favor a minimally invasive approach",
+      "Final diagnosis is pathologic, confirmed after surgical excision"
+    ],
+    "citations": [
+      "ACOG Practice Bulletin No. 174, \"Evaluation and Management of Adnexal Masses\" (2016, reaffirmed 2024)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Pelvic Organ Prolapse and Urinary Incontinence",
+    "section": "Gynecology",
+    "summary": "POP-Q staging objectively grades prolapse, while a focused office evaluation distinguishes stress from urgency incontinence and guides a stepwise, conservative-to-surgical treatment plan.",
+    "key_points": [
+      "POP-Q stages 0-4 are based on the leading prolapse edge relative to the hymen (stage 2 = within 1 cm of hymen)",
+      "A basic office evaluation (history, exam, cough stress test, post-void residual) diagnoses most incontinence without advanced testing",
+      "Stress incontinence: leakage with cough/exertion from urethral hypermobility or sphincter deficiency",
+      "Urgency incontinence: sudden urge-associated leakage, often with frequency, consistent with overactive bladder",
+      "Mixed incontinence is common; identify the predominant symptom to guide initial treatment",
+      "Post-void residual and urinalysis help exclude retention and infection as contributors"
+    ],
+    "management": [
+      "Prolapse first-line/conservative: pelvic floor physical therapy and vaginal pessary",
+      "Prolapse surgical repair reserved for symptomatic or pessary-refractory cases, tailored to the compartment involved",
+      "Stress incontinence first-line: pelvic floor muscle training; continence pessary/device as adjunct",
+      "Stress incontinence surgical: midurethral sling is the standard surgical option for refractory cases",
+      "Urgency incontinence/OAB first-line: bladder training, fluid/caffeine modification, pelvic floor therapy",
+      "Urgency incontinence second-line: antimuscarinic agents or a beta-3 agonist (mirabegron)",
+      "Refractory OAB: onabotulinumtoxinA bladder injection or sacral/tibial neuromodulation"
+    ],
+    "citations": [
+      "ACOG/AUGS Practice Bulletin No. 214, \"Pelvic Organ Prolapse\" (2019, reaffirmed 2024)",
+      "ACOG/AUGS Practice Bulletin No. 155, \"Urinary Incontinence in Women\" (2015, reaffirmed 2025)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Menopause and Hormone Therapy",
+    "section": "Gynecology",
+    "summary": "Menopause is a clinical diagnosis, and systemic hormone therapy remains the most effective option for vasomotor and genitourinary symptoms when started within the favorable risk window.",
+    "key_points": [
+      "Menopause is diagnosed clinically: 12 months of amenorrhea without another cause, typically around age 51",
+      "Hormone therapy is the most effective treatment for vasomotor symptoms and genitourinary syndrome of menopause",
+      "Favorable benefit-risk \"window of opportunity\": starting HT at age <60 or within 10 years of menopause onset",
+      "Risk profile depends on formulation, dose, route, duration, and whether a progestogen is used",
+      "Contraindications: unexplained vaginal bleeding, active/history of breast or estrogen-sensitive cancer, prior VTE/stroke/MI, active liver disease",
+      "Transdermal estrogen carries lower VTE/stroke risk than oral formulations",
+      "Low-dose vaginal estrogen can be appropriate for genitourinary symptoms even with some systemic HT contraindications"
+    ],
+    "management": [
+      "Confirm diagnosis clinically; labs are rarely needed except to exclude other causes of symptoms",
+      "First line for moderate-severe vasomotor symptoms without contraindications: systemic estrogen, plus a progestogen if the uterus is present",
+      "Genitourinary syndrome of menopause alone: low-dose vaginal estrogen, vaginal DHEA, or oral ospemifene",
+      "Nonhormonal vasomotor options: SSRIs/SNRIs, gabapentin, or the NK3-receptor antagonist fezolinetant",
+      "Reassess risk-benefit periodically; use the lowest effective dose for the duration needed to meet goals",
+      "HT also prevents bone loss; consider bisphosphonates if HT is contraindicated and fracture risk is high"
+    ],
+    "citations": [
+      "NAMS (The Menopause Society), 2022 Hormone Therapy Position Statement",
+      "NAMS (The Menopause Society), 2023 Nonhormone Therapy Position Statement for Menopausal Vasomotor Symptoms"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Polycystic Ovary Syndrome (PCOS)",
+    "section": "Gynecology",
+    "summary": "PCOS is diagnosed by Rotterdam criteria after excluding mimics, and management combines lifestyle and metabolic screening with targeted therapy for menstrual, androgenic, and fertility symptoms.",
+    "key_points": [
+      "Rotterdam criteria: 2 of 3 — oligo/anovulation, clinical or biochemical hyperandrogenism, polycystic ovarian morphology on ultrasound (or elevated AMH as a surrogate)",
+      "If irregular cycles and hyperandrogenism are both present, ultrasound/AMH is not required for diagnosis",
+      "Must exclude mimics: thyroid dysfunction, hyperprolactinemia, nonclassic congenital adrenal hyperplasia",
+      "Fasting lipid profile recommended at diagnosis for all patients with PCOS regardless of age or BMI",
+      "Glycemic screening (oral glucose tolerance test preferred) at baseline and every 1-3 years, especially before pregnancy",
+      "Chronic anovulation with unopposed estrogen raises endometrial hyperplasia risk"
+    ],
+    "management": [
+      "Lifestyle modification (diet and exercise) is foundational for metabolic and reproductive symptoms",
+      "Combined hormonal contraceptives are first line for menstrual irregularity and hyperandrogenism absent contraindications",
+      "Metformin for metabolic features or glucose intolerance, alone or with ovulation induction",
+      "Letrozole is the preferred first-line ovulation induction agent for infertility",
+      "Clomiphene citrate or gonadotropins as second-line/alternative ovulation induction",
+      "Cyclic progestin or a levonorgestrel IUD for endometrial protection if amenorrheic/anovulatory",
+      "Screen for and address mood disorders, obstructive sleep apnea, and cardiovascular risk factors"
+    ],
+    "citations": [
+      "2023 International Evidence-Based Guideline for the Assessment and Management of Polycystic Ovary Syndrome (ASRM/ESHRE co-sponsored)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Uterine Fibroids",
+    "section": "Gynecology",
+    "summary": "The FIGO PALM-COEIN system standardizes fibroid location for workup and planning, and treatment ranges from expectant management to uterine-sparing procedures or hysterectomy based on symptoms and fertility goals.",
+    "key_points": [
+      "FIGO PALM-COEIN classifies fibroids by location: types 0-8, from submucosal (0-2) to subserosal (5-7) and other (8)",
+      "Submucosal fibroids are most strongly linked to heavy menstrual bleeding and infertility",
+      "Most fibroids are asymptomatic; workup is driven by symptoms (heavy bleeding, bulk symptoms, pain, infertility)",
+      "Transvaginal ultrasound is first-line imaging; saline infusion sonography or MRI helps map submucosal fibroids for surgical planning",
+      "Other PALM-COEIN causes of abnormal bleeding must be excluded before attributing symptoms to fibroids alone",
+      "Screen for anemia in patients with heavy menstrual bleeding"
+    ],
+    "management": [
+      "Asymptomatic fibroids: expectant management, no treatment needed",
+      "Medical first-line for heavy bleeding: levonorgestrel IUD or combined hormonal contraceptives",
+      "Short-term medical option: GnRH agonist/antagonist (with add-back) to reduce bleeding or shrink fibroids preoperatively",
+      "Uterine-sparing procedural options: uterine artery embolization, MRI-guided focused ultrasound, laparoscopic radiofrequency ablation",
+      "Uterine-sparing surgery: myomectomy (hysteroscopic for submucosal; laparoscopic/open for larger fibroids) preserves fertility",
+      "Hysterectomy is definitive treatment for those who have completed childbearing or failed conservative therapy",
+      "Tailor the choice to fibroid location/size, symptom type, and fertility desires"
+    ],
+    "citations": [
+      "ACOG Practice Bulletin No. 228, \"Management of Symptomatic Uterine Leiomyomas\" (2021)",
+      "FIGO Leiomyoma Subclassification System, PALM-COEIN (adopted 2011, refined 2018)"
+    ],
+    "last_reviewed": "2026-10-04"
+  }
+]

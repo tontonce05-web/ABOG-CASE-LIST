@@ -1,0 +1,245 @@
+[
+  {
+    "title": "Intrapartum Fetal Heart Rate Monitoring (Category I/II/III)",
+    "section": "Obstetrics",
+    "summary": "The three-tier FHR classification system standardizes interpretation of intrapartum tracings and guides when to intervene versus continue observation.",
+    "key_points": [
+      "Category I: normal baseline 110-160 bpm, moderate variability, no late/variable decels — reassuring, no action needed",
+      "Category III: absent variability with recurrent late/variable decels or bradycardia, OR sinusoidal pattern — predicts abnormal acid-base status",
+      "Category II is everything in between; it is the most common category and requires clinical judgment, not a fixed algorithm",
+      "Variability tiers: absent, minimal (≤5 bpm), moderate (6-25 bpm), marked (>25 bpm)",
+      "Tachysystole = >5 contractions in 10 minutes, averaged over a 30-minute window",
+      "Routine supplemental maternal oxygen is no longer recommended for fetal resuscitation absent maternal hypoxemia",
+      "Category III that doesn't resolve with resuscitative measures warrants expedited delivery"
+    ],
+    "management": [
+      "Classify the tracing using the 3-tier system every time it is reviewed",
+      "For Category II, characterize the specific abnormality and trend over time rather than reacting to a single strip",
+      "Start conservative intrauterine resuscitation first: reposition mother, IV fluid bolus, correct hypotension, reduce/stop oxytocin or uterotonics",
+      "Consider short-term tocolysis (e.g., terbutaline) for tachysystole-associated decelerations",
+      "Use amnioinfusion for recurrent variable decelerations attributed to cord compression",
+      "Reserve supplemental O2 for documented maternal hypoxemia, not as a routine fetal measure",
+      "For Category III without prompt resolution, proceed to expedited delivery"
+    ],
+    "citations": [
+      "ACOG Clinical Practice Guideline No. 10, Intrapartum Fetal Heart Rate Monitoring: Interpretation and Management (current edition — verify at acog.org)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "VBAC / Trial of Labor After Cesarean (TOLAC)",
+    "section": "Obstetrics",
+    "summary": "TOLAC is a reasonable option for most patients with one prior low-transverse cesarean, but success and safety depend on careful candidate selection and informed counseling.",
+    "key_points": [
+      "Overall TOLAC success (vaginal birth) rate is roughly 60-80% in appropriately selected candidates",
+      "Uterine rupture risk with a single prior low-transverse incision is approximately 0.5-0.9%",
+      "Absolute contraindications include prior classical or T-shaped incision, prior uterine rupture, or another contraindication to vaginal birth",
+      "Favorable candidates: one prior low-transverse cesarean, no other uterine scars, adequate pelvis, spontaneous labor onset",
+      "Validated prediction calculators can estimate an individual patient's likelihood of successful VBAC",
+      "Misoprostol for cervical ripening is avoided in patients with a prior cesarean due to increased rupture risk",
+      "TOLAC should occur where staff and resources for emergency cesarean are immediately available"
+    ],
+    "management": [
+      "Counsel on individualized risks/benefits using a validated VBAC success calculator; document shared decision-making",
+      "Confirm the delivering facility has immediately available anesthesia, OR, and surgical/nursing staff for emergency cesarean",
+      "Use continuous electronic fetal monitoring throughout labor",
+      "Avoid misoprostol for cervical ripening; oxytocin for induction/augmentation is acceptable with appropriate monitoring",
+      "Maintain a low threshold for emergent cesarean with signs suggestive of uterine rupture (severe pain, bradycardia/Category III, vaginal bleeding, loss of station)",
+      "Offer planned repeat cesarean as a reasonable alternative when TOLAC is declined or contraindicated"
+    ],
+    "citations": [
+      "ACOG Practice Bulletin No. 184, Vaginal Birth After Cesarean Delivery (2017 — verify current edition at acog.org)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Group B Streptococcus (GBS) Perinatal Prophylaxis",
+    "section": "Obstetrics",
+    "summary": "Universal late-pregnancy GBS screening with risk- and culture-based intrapartum antibiotic prophylaxis is the cornerstone of preventing early-onset neonatal GBS disease.",
+    "key_points": [
+      "Universal vaginal-rectal culture screening is recommended at 36 0/7-37 6/7 weeks for all pregnant patients",
+      "GBS bacteriuria at any colony count during the current pregnancy is itself an indication for intrapartum prophylaxis — no need to retest",
+      "A prior infant with invasive GBS disease is an indication for prophylaxis in the current pregnancy regardless of current culture result",
+      "If GBS status is unknown at labor, give prophylaxis for risk factors: preterm labor <37 weeks, rupture of membranes ≥18 hours, or intrapartum fever",
+      "First-line agent is IV penicillin G; ampicillin is an acceptable alternative",
+      "For penicillin allergy with low anaphylaxis risk, cefazolin is preferred; for high anaphylaxis risk, use susceptibility-guided clindamycin or vancomycin",
+      "Scheduled cesarean performed without labor or ruptured membranes does not require GBS prophylaxis regardless of colonization status"
+    ],
+    "management": [
+      "Obtain vaginal-rectal GBS culture at 36 0/7-37 6/7 weeks unless prophylaxis is already indicated for another reason",
+      "Determine prophylaxis indication: positive culture, GBS bacteriuria this pregnancy, prior GBS-affected infant, or unknown status plus an intrapartum risk factor",
+      "Start penicillin G (or ampicillin) as first-line intrapartum prophylaxis, ideally with adequate time before delivery",
+      "Switch to cefazolin for penicillin allergy without high anaphylaxis risk",
+      "Use clindamycin only if susceptibility is confirmed, or vancomycin, for high anaphylaxis risk with resistant/unknown susceptibility",
+      "Skip prophylaxis for a planned cesarean with intact membranes and no labor",
+      "Communicate maternal GBS status and prophylaxis timing to the newborn care team for risk-based neonatal monitoring"
+    ],
+    "citations": [
+      "ACOG Committee Opinion No. 797, Prevention of Group B Streptococcal Early-Onset Disease in Newborns (2020)",
+      "CDC Guidelines for the Prevention of Perinatal Group B Streptococcal Disease (verify current edition at cdc.gov)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Multiple Gestation: Chorionicity-Based Surveillance",
+    "section": "Obstetrics",
+    "summary": "Chorionicity, not zygosity, determines the complication risk and surveillance intensity for twin pregnancies, with monochorionic twins requiring the closest monitoring.",
+    "key_points": [
+      "Chorionicity/amnionicity should be determined as early as possible, ideally by first-trimester ultrasound (lambda vs T-sign)",
+      "Monochorionic-diamniotic (MCDA) twins are at risk for twin-twin transfusion syndrome (TTTS), TAPS, and selective fetal growth restriction",
+      "TTTS is diagnosed by oligohydramnios (deepest vertical pocket <2cm) in the donor sac plus polyhydramnios (DVP >8cm) in the recipient sac, staged by Quintero criteria I-V",
+      "Monochorionic-monoamniotic (MCMA) twins carry the highest risk (cord entanglement) and are generally managed with inpatient surveillance",
+      "Recommended uncomplicated delivery windows: dichorionic-diamniotic ~38 weeks, uncomplicated MCDA 34-37 6/7 weeks, MCMA 32-34 weeks",
+      "Antenatal fetal testing is recommended for monochorionic twins given elevated stillbirth risk relative to dichorionic twins"
+    ],
+    "management": [
+      "Establish chorionicity/amnionicity by ultrasound as early as possible, ideally in the first trimester",
+      "Set surveillance frequency by chorionicity: monochorionic twins roughly every 2 weeks starting around 16 weeks; dichorionic twins less frequently",
+      "Screen each monochorionic surveillance visit for TTTS using fluid/bladder criteria and stage with Quintero criteria if present",
+      "Refer significant TTTS to a fetal therapy center for consideration of fetoscopic laser photocoagulation",
+      "Begin antenatal testing (NST/BPP) for monochorionic twins, often starting around 32 weeks or earlier/inpatient for MCMA",
+      "Plan delivery timing by chorionicity and any complications rather than a single fixed gestational age for all twins",
+      "Refer complicated cases (selective FGR, TAPS, MCMA) to maternal-fetal medicine or a dedicated multiples program"
+    ],
+    "citations": [
+      "ACOG Practice Bulletin, Multifetal Gestations: Twin, Triplet, and Higher-Order Multifetal Pregnancies (current edition — verify at acog.org)",
+      "SMFM Consult Series, Twin Pregnancy: Surveillance and Delivery Timing (current edition — verify at smfm.org)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Placenta Accreta Spectrum & Third-Trimester Bleeding",
+    "section": "Obstetrics",
+    "summary": "Prior cesarean combined with a previa or low-lying placenta is the dominant risk pattern for placenta accreta spectrum, and outcomes hinge on antenatal diagnosis plus planned delivery at an experienced center.",
+    "key_points": [
+      "Placenta accreta spectrum (PAS) risk is driven mainly by prior cesarean delivery plus placenta previa/low-lying placenta over the old scar",
+      "Ultrasound is first-line for PAS diagnosis: loss of the retroplacental clear space, placental lacunae, bridging vessels, myometrial thinning",
+      "Absence of classic ultrasound findings does not rule out PAS — clinical risk factors still matter",
+      "Placenta previa = placenta covering or within 2cm of the internal cervical os on transvaginal ultrasound after 20 weeks; many resolve by the third trimester",
+      "Classic abruption triad: vaginal bleeding, abdominal/back pain, and uterine tenderness or hypertonus; bleeding can be concealed",
+      "PAS outcomes are optimized with planned, scheduled delivery (often 34-36 weeks) at a level III/IV maternal care center, avoiding labor and placental disruption"
+    ],
+    "management": [
+      "Evaluate risk factors (prior cesarean, previa, prior uterine surgery) and confirm suspected PAS with targeted ultrasound by an experienced sonographer",
+      "Refer confirmed or suspected PAS to a level III/IV maternal care center for multidisciplinary planning",
+      "Plan a scheduled cesarean (often with hysterectomy, placenta left in situ) before labor onset, avoiding placental disruption",
+      "For bleeding previa: hospitalize for monitoring, avoid digital/vaginal exams, give antenatal corticosteroids if preterm, individualize delivery timing by bleeding severity",
+      "For suspected abruption: continuous fetal monitoring, assess maternal hemodynamics and coagulopathy, expedite delivery for nonreassuring status or severe abruption",
+      "Pre-arrange blood products/massive transfusion protocol and relevant surgical specialists for anticipated PAS cases",
+      "Counsel the patient preoperatively about likely hysterectomy and fertility implications when PAS is suspected"
+    ],
+    "citations": [
+      "ACOG-SMFM Obstetric Care Consensus No. 7, Placenta Accreta Spectrum (2018)",
+      "ACOG Practice Bulletin, Placenta Previa and Placental Abruption (current edition — verify at acog.org)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Antepartum Fetal Surveillance (NST/BPP/Modified BPP)",
+    "section": "Obstetrics",
+    "summary": "Antepartum testing uses the NST, biophysical profile, or modified BPP to reduce stillbirth risk in pregnancies with maternal or fetal risk factors.",
+    "key_points": [
+      "Reactive NST = at least 2 accelerations of ≥15 bpm for ≥15 seconds within 20 minutes (lower thresholds before 32 weeks)",
+      "Full BPP scores 5 components (NST, fetal breathing, movement, tone, amniotic fluid), each worth 0 or 2 points, for a max of 10",
+      "Modified BPP (NST + amniotic fluid index) is similarly predictive and less resource-intensive than the full BPP",
+      "Oligohydramnios (AFI ≤5cm or single deepest pocket <2cm) is considered abnormal independent of the rest of the BPP score",
+      "A BPP score ≤4 generally warrants prompt delivery consideration; a score of 6 is equivocal and usually repeated the same day",
+      "Testing typically starts around 32-34 weeks for most indications but earlier for more severe conditions"
+    ],
+    "management": [
+      "Identify the maternal/fetal risk factor driving the need for testing and the appropriate gestational age to start",
+      "Use the NST as the first-line test; if nonreactive, follow with a full or modified BPP",
+      "Score BPP components systematically and act according to the total: 8-10 reassuring, 6 equivocal/repeat, ≤4 concerning",
+      "Assess amniotic fluid volume as an independent data point, since oligohydramnios prompts further workup regardless of overall BPP score",
+      "Repeat testing weekly to twice weekly depending on the indication and its severity",
+      "Interpret results alongside growth scans, Doppler studies, and the overall clinical picture rather than in isolation",
+      "Expedite delivery for persistently abnormal or worsening surveillance, balanced against gestational age"
+    ],
+    "citations": [
+      "ACOG Practice Bulletin No. 229, Antepartum Fetal Surveillance (2021)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Cervical Insufficiency and Cerclage",
+    "section": "Obstetrics",
+    "summary": "Cerclage type (history-, ultrasound-, or exam-indicated) is selected based on obstetric history and current cervical findings to prevent recurrent second-trimester loss or preterm birth.",
+    "key_points": [
+      "Cervical insufficiency: painless cervical dilation/shortening causing recurrent second-trimester loss in the absence of labor or abruption",
+      "History-indicated (prophylactic) cerclage is placed around 12-14 weeks based on ≥1 prior second-trimester loss from painless dilation",
+      "Ultrasound-indicated cerclage is considered for cervical length <25mm before 24 weeks in a patient with a prior spontaneous preterm birth",
+      "Exam-indicated (rescue) cerclage is for cervical dilation found on exam before 24 weeks without labor, infection, or abruption",
+      "Cerclage is contraindicated with active labor, chorioamnionitis, major fetal anomaly, or significant bleeding",
+      "McDonald cerclage is the most common technique; transabdominal cerclage is reserved for failed prior transvaginal cerclage",
+      "Progesterone therapy addresses a different risk pathway (prior spontaneous preterm birth) and may be used alongside or instead of cerclage"
+    ],
+    "management": [
+      "Take a detailed history to classify risk type: classic insufficiency history vs prior spontaneous preterm birth vs an incidental current exam finding",
+      "Place a history-indicated cerclage early (~12-14 weeks) for a classic cervical insufficiency history",
+      "For prior spontaneous preterm birth, follow serial transvaginal cervical length ultrasound from 16-24 weeks",
+      "Place an ultrasound-indicated cerclage if cervical length falls below 25mm before 24 weeks in that population",
+      "Consider exam-indicated/rescue cerclage for cervical dilation found before 24 weeks after excluding labor, infection, abruption, and anomaly",
+      "Pair with vaginal or intramuscular progesterone per indication rather than using cerclage for short cervix alone without a qualifying history",
+      "Plan cerclage removal around 36-37 weeks, or earlier for labor, rupture of membranes, or infection"
+    ],
+    "citations": [
+      "ACOG Practice Bulletin No. 142, Cerclage for the Management of Cervical Insufficiency (2014 — verify current edition at acog.org)",
+      "SMFM Consult Series, Cerclage for the Prevention of Preterm Birth (current edition — verify at smfm.org)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Obesity in Pregnancy",
+    "section": "Obstetrics",
+    "summary": "Pre-pregnancy obesity raises risk across nearly every major obstetric complication and requires adjustments to screening timing, medication dosing, and delivery planning.",
+    "key_points": [
+      "Obesity = pre-pregnancy BMI ≥30, further stratified into class I-III (class III ≥40)",
+      "Associated with increased risk of gestational diabetes, hypertensive disorders/preeclampsia, macrosomia, cesarean delivery, VTE, anesthesia complications, and stillbirth",
+      "Recommended gestational weight gain is lower at higher BMI classes per national weight-gain guidelines",
+      "Early glucose screening at the first prenatal visit is recommended in obesity, in addition to standard 24-28 week screening",
+      "Medication and thromboprophylaxis dosing may need weight-based adjustment",
+      "Early anesthesia consultation is recommended for class II-III obesity to plan for airway and regional anesthesia challenges",
+      "Obesity is a recognized moderate risk factor supporting low-dose aspirin for preeclampsia prevention, particularly with additional risk factors"
+    ],
+    "management": [
+      "Counsel on individualized, BMI-based gestational weight gain targets starting at the first prenatal visit",
+      "Screen for gestational diabetes early (first visit) in addition to the standard 24-28 week screen",
+      "Assess preeclampsia risk and initiate low-dose aspirin per risk-factor criteria when indicated",
+      "Arrange antepartum anesthesia consultation for class II-III obesity",
+      "Review VTE prophylaxis and other weight-based medication dosing throughout pregnancy and postpartum",
+      "Plan fetal growth assessment accordingly, recognizing ultrasound may be technically limited",
+      "Discuss delivery-related risks and logistics (positioning, incision choice, equipment needs) ahead of time, especially if cesarean is anticipated"
+    ],
+    "citations": [
+      "ACOG Practice Bulletin No. 230, Obesity in Pregnancy (2021)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Venous Thromboembolism (VTE) Risk Assessment and Prophylaxis",
+    "section": "Obstetrics",
+    "summary": "Pregnancy and the postpartum period markedly increase VTE risk, so structured risk assessment and risk-based prophylaxis at key clinical touchpoints are central to prevention.",
+    "key_points": [
+      "Pregnancy/postpartum confers roughly a 4-5 fold increased VTE risk compared with the nonpregnant state",
+      "VTE is a leading cause of maternal mortality in the United States",
+      "Personal history of VTE is the single strongest individual risk factor; known thrombophilia is the next most significant",
+      "LMWH is the preferred agent for pharmacologic prophylaxis and treatment, both antepartum and postpartum",
+      "All cesarean deliveries should receive at least mechanical prophylaxis (sequential compression devices) if not already on pharmacologic prophylaxis",
+      "Anticoagulation timing must be coordinated around neuraxial anesthesia safety windows near delivery",
+      "Highest-risk patients (prior VTE, high-risk thrombophilia) may warrant extended postpartum prophylaxis, commonly around 6 weeks"
+    ],
+    "management": [
+      "Perform a structured VTE risk assessment at prenatal intake, at any antepartum admission, and again postpartum/post-cesarean",
+      "Risk-stratify patients into pharmacologic (LMWH) versus mechanical-only prophylaxis candidates",
+      "Use LMWH first-line when pharmacologic prophylaxis is indicated, timing doses around planned neuraxial anesthesia",
+      "Apply mechanical prophylaxis (SCDs) for all cesarean deliveries without pharmacologic prophylaxis and other at-risk patients",
+      "Continue or extend prophylaxis postpartum for the highest-risk patients",
+      "Evaluate acute symptoms (leg swelling/pain, dyspnea, chest pain) promptly with compression ultrasound or CTPA/V-Q as appropriate",
+      "Treat confirmed VTE with therapeutic anticoagulation and plan the transition around delivery and the postpartum period"
+    ],
+    "citations": [
+      "ACOG Practice Bulletin No. 196, Thromboembolism in Pregnancy (2018)"
+    ],
+    "last_reviewed": "2026-10-04"
+  }
+]

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><%- include('../partials/head') %></head>
+<body>
+  <%- include('../partials/nav') %>
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <span class="badge section-<%= topic.section.replace(/\s+/g, '-') %>"><%= topic.section %></span>
+        <h1 style="margin-top:8px;"><%= topic.title %></h1>
+      </div>
+      <div>
+        <a href="/study/<%= topic.id %>/edit" class="btn-small btn-secondary">Edit</a>
+        <form method="POST" action="/study/<%= topic.id %>/delete" class="inline-form"
+              onsubmit="return confirm('Delete this topic?');">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+          <button type="submit" class="btn-small btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+
+    <% if (topic.summary) { %><p class="subtitle"><%= topic.summary %></p><% } %>
+
+    <div class="card">
+      <h2>Key points</h2>
+      <% if (keyPoints.length === 0) { %><p class="muted small">No key points added yet.</p><% } %>
+      <ul class="topic-list">
+        <% keyPoints.forEach(function(pt) { %><li><%= pt %></li><% }); %>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Management</h2>
+      <% if (management.length === 0) { %><p class="muted small">No management notes added yet.</p><% } %>
+      <ol class="topic-list">
+        <% management.forEach(function(pt) { %><li><%= pt %></li><% }); %>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>Sources</h2>
+      <% if (citations.length === 0) { %><p class="muted small">No sources listed.</p><% } %>
+      <ul class="citation-list">
+        <% citations.forEach(function(c) { %><li><%= c %></li><% }); %>
+      </ul>
+      <% if (topic.last_reviewed) { %><p class="small muted" style="margin-top:10px;">Last reviewed <%= topic.last_reviewed %>. Verify against the current primary source before relying on this for boards or patient care.</p><% } %>
+    </div>
+
+    <a href="/study" class="small">← Back to Study &amp; References</a>
+  </div>
+</body>
+</html>

@@ -10,6 +10,7 @@ const authRoutes = require('./src/routes/auth');
 const dashboardRoutes = require('./src/routes/dashboard');
 const caseRoutes = require('./src/routes/cases');
 const settingsRoutes = require('./src/routes/settings');
+const studyRoutes = require('./src/routes/study');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -86,6 +87,7 @@ app.use('/', authRoutes);
 app.use('/', requireAuth, dashboardRoutes);
 app.use('/cases', requireAuth, caseRoutes);
 app.use('/settings', requireAuth, settingsRoutes);
+app.use('/study', requireAuth, studyRoutes);
 
 app.use((req, res) => {
   res.status(404).render('error', { title: 'Not found', message: 'That page does not exist.' });

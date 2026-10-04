@@ -17,6 +17,7 @@
     <nav class="nav-links">
       <a href="/" class="<%= isActive('/') && path === '/' ? 'active' : '' %>">Dashboard</a>
       <a href="/cases" class="<%= isActive('/cases') && path !== '/cases/new' ? 'active' : '' %>">Cases</a>
+      <a href="/study" class="<%= isActive('/study') ? 'active' : '' %>">Study</a>
       <a href="/settings" class="<%= isActive('/settings') ? 'active' : '' %>">Settings</a>
       <a href="/cases/export.csv" class="nav-icon-link" title="Export CSV">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M12 3v12m0 0-4-4m4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>

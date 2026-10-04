@@ -1,0 +1,145 @@
+[
+  {
+    "title": "Abnormal Uterine Bleeding (FIGO PALM-COEIN)",
+    "section": "Gynecology",
+    "summary": "Structured FIGO PALM-COEIN classification standardizes workup of abnormal uterine bleeding and guides a stepwise medical-to-surgical management approach.",
+    "key_points": [
+      "PALM = structural causes: Polyp, Adenomyosis, Leiomyoma, Malignancy/hyperplasia",
+      "COEIN = nonstructural causes: Coagulopathy, Ovulatory dysfunction, Endometrial, Iatrogenic, Not-yet-classified",
+      "Heavy menstrual bleeding is defined by impact on quality of life, not a fixed blood-loss volume",
+      "First-line workup: pregnancy test, CBC, TSH, coagulation studies if indicated, pelvic ultrasound",
+      "Endometrial sampling for age 45+ or younger with risk factors (obesity, PCOS, unopposed estrogen, persistent bleeding)",
+      "Saline sonohysterography or hysteroscopy used when focal lesion (polyp/fibroid) is suspected",
+      "Leiomyomas subclassified FIGO 0-8 by relation to endometrial cavity and uterine serosa"
+    ],
+    "management": [
+      "Medical first-line: combined hormonal contraceptives, cyclic/continuous progestins, or levonorgestrel IUD",
+      "Tranexamic acid or NSAIDs for ovulatory heavy bleeding when contraception isn't needed/desired",
+      "GnRH agonist/antagonist (± add-back therapy) for fibroid-related bleeding, short-term or preoperatively",
+      "Hysteroscopic polypectomy or myomectomy for cavity-distorting lesions",
+      "Endometrial ablation for refractory bleeding when fertility is no longer desired",
+      "Uterine artery embolization as a uterus-sparing option for symptomatic fibroids",
+      "Hysterectomy is definitive for refractory bleeding or when malignancy is present"
+    ],
+    "citations": [
+      "ACOG Practice Bulletin, Diagnosis of Abnormal Uterine Bleeding in Reproductive-Aged Women (current edition — verify at acog.org)",
+      "ACOG Practice Bulletin, Management of Abnormal Uterine Bleeding Associated with Ovulatory Dysfunction (current edition — verify at acog.org)",
+      "ACOG Practice Bulletin No. 228, Management of Symptomatic Uterine Leiomyomas (verify current status at acog.org)",
+      "FIGO PALM-COEIN Classification System for Causes of Abnormal Uterine Bleeding (verify current version at figo.org)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Ectopic Pregnancy",
+    "section": "Gynecology",
+    "summary": "Early risk stratification and hCG/ultrasound criteria distinguish candidates for methotrexate therapy from those needing surgical management of ectopic pregnancy.",
+    "key_points": [
+      "Risk factors: prior ectopic, tubal surgery/damage, PID/salpingitis, IUD in place at conception, smoking, ART",
+      "Classic triad (pain, bleeding, amenorrhea) is often incomplete at presentation",
+      "Discriminatory hCG zone ~3,500 mIU/mL: an intrauterine pregnancy should be visible on TVUS above this",
+      "Normal early viable IUP hCG rises at least ~35% over 48 hours; slower rise suggests ectopic/nonviable pregnancy",
+      "Methotrexate candidacy: hemodynamically stable, hCG generally <5,000, mass ≤3.5-4 cm, no fetal cardiac activity",
+      "Methotrexate requires normal renal/hepatic/marrow function and reliable follow-up",
+      "Absolute contraindications to methotrexate: rupture, instability, breastfeeding, immunodeficiency, significant renal/hepatic disease"
+    ],
+    "management": [
+      "Confirm diagnosis with serial hCG trends plus transvaginal ultrasound; exclude heterotopic pregnancy after ART",
+      "Single-dose IM methotrexate with hCG checks on days 4 and 7, expecting ≥15% decline",
+      "Repeat dosing or convert to surgery if hCG decline is inadequate",
+      "Surgery (salpingostomy or salpingectomy) for rupture, instability, or methotrexate failure/contraindication",
+      "Salpingectomy favored over salpingostomy when the contralateral tube is healthy",
+      "Give Rh immune globulin if the patient is Rh-negative",
+      "Counsel on recurrence risk and need for early ultrasound in future pregnancies"
+    ],
+    "citations": [
+      "ACOG Practice Bulletin No. 193, Tubal Ectopic Pregnancy (2018; verify current reaffirmation status at acog.org)",
+      "ACOG Practice Bulletin, Early Pregnancy Loss (current edition — verify at acog.org)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Pelvic Inflammatory Disease and Common STIs",
+    "section": "Gynecology",
+    "summary": "Low-threshold clinical diagnosis and CDC-directed empiric antibiotic regimens for PID and common STIs, paired with age-based screening recommendations.",
+    "key_points": [
+      "PID minimum criteria: cervical motion, uterine, or adnexal tenderness in a sexually active woman with pelvic pain",
+      "Supportive criteria: oral temp >101°F, abnormal discharge, elevated ESR/CRP, documented gonorrhea/chlamydia",
+      "Low specificity of criteria plus high cost of missed diagnosis support a low threshold to treat empirically",
+      "Chlamydia and gonorrhea are diagnosed by NAAT on vaginal/cervical swab or urine",
+      "Screen all sexually active women under 25 annually for chlamydia/gonorrhea; screen older women with risk factors",
+      "Test every PID patient for gonorrhea, chlamydia, HIV, and syphilis; consider M. genitalium",
+      "Hospitalize for PID if pregnant, failing oral therapy, tubo-ovarian abscess, or surgical emergency can't be excluded"
+    ],
+    "management": [
+      "Outpatient PID: ceftriaxone IM once, plus doxycycline 100 mg PO twice daily and metronidazole 500 mg PO twice daily, both for 14 days",
+      "Inpatient/parenteral PID: cefotetan or cefoxitin plus doxycycline, or clindamycin plus gentamicin, step down to oral once improving",
+      "Uncomplicated chlamydia: doxycycline 100 mg PO twice daily for 7 days (azithromycin single dose as an alternative)",
+      "Uncomplicated gonorrhea: single weight-based IM ceftriaxone dose; treat chlamydia presumptively if not excluded",
+      "Evaluate and presumptively treat sex partners from the prior 60 days for gonorrhea/chlamydia",
+      "Advise abstinence until therapy is complete and partners are treated; retest for reinfection at 3 months",
+      "Drain a tubo-ovarian abscess (surgically or image-guided) if it fails to respond to antibiotics"
+    ],
+    "citations": [
+      "CDC Sexually Transmitted Infections Treatment Guidelines, 2021 (current edition — verify at cdc.gov)",
+      "CDC Chlamydia and Gonorrhea Screening Recommendations (current edition — verify at cdc.gov)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Contraception (CDC MEC and Method Selection)",
+    "section": "Gynecology",
+    "summary": "CDC Medical Eligibility Criteria categories match contraceptive methods to patient comorbidities, alongside effectiveness tiers and method-specific safety flags.",
+    "key_points": [
+      "US MEC categories: 1 no restriction, 2 benefits outweigh risks, 3 risks usually outweigh benefits, 4 unacceptable risk",
+      "Tier 1 effectiveness (<1 pregnancy/100 woman-years): implant, hormonal and copper IUDs, sterilization",
+      "Tier 2 effectiveness (typical-use failure roughly mid-single to low-double digits per 100 woman-years): injectable, pill, patch, ring",
+      "Tier 3 effectiveness (least effective typical use): barrier methods, fertility awareness, withdrawal",
+      "Combined hormonal methods are MEC 4 in smokers 35+ (heavy use), migraine with aura, VTE/thrombophilia history",
+      "IUDs (copper or levonorgestrel) are safe (MEC 1-2) in most comorbidities and serve as top emergency contraception options",
+      "Progestin-only methods are MEC 1-2 across most cardiovascular risk factors, including much VTE history"
+    ],
+    "management": [
+      "Assess reproductive goals and comorbidities, then apply the MEC category before recommending a method",
+      "Offer long-acting reversible contraception (LARC) first-line given superior effectiveness and continuation rates",
+      "Avoid estrogen-containing methods in MEC 3/4 conditions (aura migraine, heavy smoking 35+, VTE/thrombophilia)",
+      "Use the companion Selected Practice Recommendations (SPR) for initiation timing and side-effect management",
+      "Counsel on emergency contraception: copper IUD is most effective; levonorgestrel or ulipristal oral options otherwise",
+      "Reassess MEC eligibility whenever a new diagnosis (hypertension, VTE, aura migraine) arises",
+      "Recommend dual method use with barriers for STI protection regardless of primary contraceptive chosen"
+    ],
+    "citations": [
+      "CDC U.S. Medical Eligibility Criteria for Contraceptive Use, 2024, MMWR Recommendations and Reports Vol. 73, No. RR-4",
+      "CDC U.S. Selected Practice Recommendations for Contraceptive Use, 2024 (verify at cdc.gov)"
+    ],
+    "last_reviewed": "2026-10-04"
+  },
+  {
+    "title": "Cervical Cancer Screening and Abnormal Result Management",
+    "section": "Gynecology",
+    "summary": "Age- and history-based screening intervals combine with ASCCP risk-based thresholds to decide when abnormal cytology or HPV results warrant colposcopy versus treatment.",
+    "key_points": [
+      "Screening start age and primary modality vary by guideline body (age 21 vs. 25, cytology vs. primary HPV) — verify current source",
+      "Ages 21-29: cytology alone roughly every 3 years is the common baseline recommendation",
+      "Ages 30-65: preferred strategies are primary HPV testing or HPV/cytology co-testing roughly every 5 years, or cytology alone every 3 years",
+      "Screening may stop after age 65 with adequate negative screening history and no CIN2+ in the past 25 years",
+      "ASCCP risk-based management sets the colposcopy referral threshold at roughly 4% immediate CIN3+ risk",
+      "Very high immediate CIN3+ risk (roughly 60%+) supports proceeding directly to treatment without confirmatory colposcopy",
+      "Management depends on current result plus prior screening/biopsy history, not the current result alone"
+    ],
+    "management": [
+      "Triage abnormal cytology (ASC-US or worse) or a positive primary HPV test using current risk-based action thresholds",
+      "Refer to colposcopy once estimated CIN3+ risk meets or exceeds the guideline threshold",
+      "Consider expedited treatment without colposcopy when risk is very high (e.g., HPV16/18-positive with high-grade cytology)",
+      "Use extended HPV genotyping (16/18 or other high-risk types) to refine the risk estimate for triage",
+      "Intensify post-colposcopy/post-treatment surveillance (more frequent HPV testing) rather than resuming the routine interval",
+      "Continue surveillance for at least 25 years after treatment for CIN2+, even past age 65",
+      "Maintain longitudinal screening/biopsy history, since management depends on it as well as the current test"
+    ],
+    "citations": [
+      "ASCCP Risk-Based Management Consensus Guidelines for Abnormal Cervical Cancer Screening Tests and Cancer Precursors, 2019 (verify current update at asccp.org)",
+      "American Cancer Society Cervical Cancer Screening Guideline, 2020 Update",
+      "ACOG Practice Advisory, Cervical Cancer Screening and Risk-Based Management (current edition — verify at acog.org)"
+    ],
+    "last_reviewed": "2026-10-04"
+  }
+]
