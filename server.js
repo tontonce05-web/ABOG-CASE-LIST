@@ -78,6 +78,7 @@ app.use(
 app.use((req, res, next) => {
   res.locals.csrfToken = ensureCsrfToken(req);
   res.locals.authenticated = !!(req.session && req.session.authenticated);
+  res.locals.currentPath = req.path;
   next();
 });
 

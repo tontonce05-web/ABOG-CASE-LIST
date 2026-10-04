@@ -5,13 +5,32 @@
   <%- include('partials/nav') %>
   <div class="container">
     <h1><%= examName %></h1>
-    <p class="subtitle">Collection period: <%= collectionStart %> to <%= collectionEnd %> · <%= totalCases %> case<%= totalCases === 1 ? '' : 's' %> logged</p>
+    <p class="subtitle">Collection period: <%= collectionStart %> to <%= collectionEnd %></p>
+
+    <div class="stat-row">
+      <div class="stat-tile">
+        <div class="stat-value"><%= totalCases %></div>
+        <div class="stat-label">Case<%= totalCases === 1 ? '' : 's' %> logged</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-value"><%= overallPct === null ? '—' : overallPct + '%' %></div>
+        <div class="stat-label">Toward category minimums</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-value"><%= categoriesComplete %><span class="stat-value-of">/<%= categoriesWithMinimum %></span></div>
+        <div class="stat-label">Categories at minimum</div>
+      </div>
+      <div class="stat-tile <%= daysRemaining !== null && daysRemaining < 30 ? 'stat-tile-warn' : '' %>">
+        <div class="stat-value"><%= daysRemaining === null ? '—' : daysRemaining %></div>
+        <div class="stat-label">Days left to collect</div>
+      </div>
+    </div>
 
     <% bySection.forEach(function(group) { %>
       <div class="section-header"><h2><%= group.section %></h2></div>
       <div class="progress-grid">
         <% group.items.forEach(function(item) { %>
-          <div class="progress-item">
+          <div class="progress-item <%= item.minimum_count > 0 && item.pct >= 100 ? 'is-complete' : '' %>">
             <div class="label">
               <span><%= item.name %></span>
               <span class="count"><%= item.count %><%= item.minimum_count > 0 ? ' / ' + item.minimum_count : '' %></span>
@@ -32,6 +51,7 @@
     <div class="card">
       <% if (recentCases.length === 0) { %>
         <div class="empty-state">
+          <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="17" rx="2"/><path d="M8 2.5v3M16 2.5v3M8 12h8M8 16h5"/></svg>
           <p>No cases yet.</p>
           <a href="/cases/new" class="btn">Add your first case</a>
         </div>
@@ -41,11 +61,11 @@
         <tbody>
           <% recentCases.forEach(function(c) { %>
           <tr>
-            <td><%= c.date_of_service || '—' %></td>
-            <td><%= c.category_name || '—' %></td>
-            <td><%= c.patient_initials || '—' %></td>
-            <td><%= c.procedure_text || '—' %></td>
-            <td><a href="/cases/<%= c.id %>">View</a></td>
+            <td data-label="Date"><%= c.date_of_service || '—' %></td>
+            <td data-label="Category"><%= c.category_name || '—' %></td>
+            <td data-label="Initials"><%= c.patient_initials || '—' %></td>
+            <td data-label="Procedure"><%= c.procedure_text || '—' %></td>
+            <td data-label=""><a href="/cases/<%= c.id %>">View</a></td>
           </tr>
           <% }); %>
         </tbody>

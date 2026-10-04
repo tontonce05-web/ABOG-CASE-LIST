@@ -34,14 +34,31 @@ router.get('/', (req, res) => {
     )
     .all();
 
+  const withMinimums = categoryProgress.filter((c) => c.minimum_count > 0);
+  const totalMinimum = withMinimums.reduce((sum, c) => sum + c.minimum_count, 0);
+  const totalTowardMinimum = withMinimums.reduce((sum, c) => sum + Math.min(c.count, c.minimum_count), 0);
+  const overallPct = totalMinimum > 0 ? Math.round((totalTowardMinimum / totalMinimum) * 100) : null;
+  const categoriesComplete = withMinimums.filter((c) => c.count >= c.minimum_count).length;
+
+  const collectionEnd = getSetting('collection_end');
+  let daysRemaining = null;
+  if (collectionEnd) {
+    const diffMs = new Date(`${collectionEnd}T23:59:59`) - new Date();
+    daysRemaining = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+  }
+
   res.render('dashboard', {
     title: 'Dashboard',
     bySection,
     totalCases,
     recentCases,
+    overallPct,
+    categoriesComplete,
+    categoriesWithMinimum: withMinimums.length,
+    daysRemaining,
     examName: getSetting('exam_name'),
     collectionStart: getSetting('collection_start'),
-    collectionEnd: getSetting('collection_end'),
+    collectionEnd,
   });
 });
 
