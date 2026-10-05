@@ -1,10 +1,24 @@
 const express = require('express');
+const fs = require('fs');
+const path = require('path');
 const { db } = require('../db');
 const { checkCsrf } = require('../auth');
 
 const router = express.Router();
 
 const FIELDS = ['title', 'section', 'summary', 'key_points', 'management', 'citations', 'last_reviewed'];
+
+// The CDC MEC quick-reference table is only relevant to the Contraception
+// topic. It's loaded from a bundled JSON file rather than stored as a
+// study_topics row since it's structured reference data, not prose.
+const MEC_TOPIC_TITLE = 'Contraception (CDC MEC and Method Selection)';
+const MEC_DATA_PATH = path.join(__dirname, '..', 'seed-data', 'mec-table.json');
+let mecData = null;
+try {
+  mecData = JSON.parse(fs.readFileSync(MEC_DATA_PATH, 'utf8'));
+} catch (e) {
+  mecData = null;
+}
 
 function sanitizeBody(body) {
   const out = {};
@@ -71,6 +85,7 @@ router.get('/:id', (req, res) => {
     keyPoints: toLines(topic.key_points),
     management: toLines(topic.management),
     citations: toLines(topic.citations),
+    mecData: topic.title === MEC_TOPIC_TITLE ? mecData : null,
   });
 });
 

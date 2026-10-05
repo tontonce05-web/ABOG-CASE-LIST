@@ -87,9 +87,10 @@ router.get('/', (req, res) => {
 });
 
 router.get('/new', (req, res) => {
+  const categoryId = req.query.category_id ? parseInt(req.query.category_id, 10) : null;
   res.render('cases/form', {
     title: 'Add Case',
-    caseItem: {},
+    caseItem: categoryId ? { category_id: categoryId } : {},
     categories: getCategories(),
     parsed: null,
     sourceNote: '',

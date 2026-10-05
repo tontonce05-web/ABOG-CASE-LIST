@@ -37,6 +37,58 @@
       </ol>
     </div>
 
+    <% if (mecData) { %>
+    <div class="card">
+      <h2>CDC MEC quick reference</h2>
+      <p class="small muted">Search a condition to see its U.S. Medical Eligibility Criteria category (1 = no restriction, 2 = benefits outweigh risks, 3 = risks usually outweigh benefits, 4 = unacceptable risk) for each method. This is a study aid covering commonly-referenced conditions, not the complete CDC table — confirm sub-criteria and anything high-stakes against the current CDC MEC app or MMWR document.</p>
+      <div class="mec-search">
+        <input type="text" id="mec-search-input" placeholder="Search a condition, e.g. migraine, postpartum, VTE..." autocomplete="off" />
+      </div>
+      <div class="mec-table-wrap">
+        <table class="mec-table" id="mec-table">
+          <thead>
+            <tr>
+              <th>Condition</th>
+              <th title="Copper IUD">Cu-IUD</th>
+              <th title="Levonorgestrel IUD">LNG-IUD</th>
+              <th title="Etonogestrel implant">Implant</th>
+              <th title="Injectable DMPA">DMPA</th>
+              <th title="Progestin-only pill">POP</th>
+              <th title="Combined pill/patch/ring">CHC</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%
+              var lastGroup = null;
+              function catClass(v) {
+                if (!v || v === 'NA') return 'mec-cat-na';
+                return 'mec-cat-' + v.charAt(0);
+              }
+            %>
+            <% mecData.conditions.forEach(function(row) { %>
+              <% if (row.category !== lastGroup) { lastGroup = row.category; %>
+              <tr class="mec-group-row"><td colspan="8"><%= row.category %></td></tr>
+              <% } %>
+              <tr class="mec-row" data-condition="<%= row.condition.toLowerCase() %>">
+                <td class="mec-condition"><%= row.condition %></td>
+                <td><span class="mec-cat <%= catClass(row.cu_iud) %>"><%= row.cu_iud %></span></td>
+                <td><span class="mec-cat <%= catClass(row.lng_iud) %>"><%= row.lng_iud %></span></td>
+                <td><span class="mec-cat <%= catClass(row.implant) %>"><%= row.implant %></span></td>
+                <td><span class="mec-cat <%= catClass(row.dmpa) %>"><%= row.dmpa %></span></td>
+                <td><span class="mec-cat <%= catClass(row.pop) %>"><%= row.pop %></span></td>
+                <td><span class="mec-cat <%= catClass(row.chc) %>"><%= row.chc %></span></td>
+                <td class="mec-notes"><%= row.notes || '' %></td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+      <p id="mec-no-results" class="small muted" style="display:none; margin-top:10px;">No conditions match that search.</p>
+      <p class="small muted" style="margin-top:14px;"><%= mecData.citation %> · Last reviewed <%= mecData.last_reviewed %>.</p>
+    </div>
+    <% } %>
+
     <div class="card">
       <h2>Sources</h2>
       <% if (citations.length === 0) { %><p class="muted small">No sources listed.</p><% } %>
@@ -48,5 +100,6 @@
 
     <a href="/study" class="small">← Back to Study &amp; References</a>
   </div>
+  <% if (mecData) { %><script src="/js/mec-filter.js"></script><% } %>
 </body>
 </html>
