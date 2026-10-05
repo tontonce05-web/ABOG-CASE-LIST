@@ -38,7 +38,7 @@
           <% cases.forEach(function(c) { %>
           <tr>
             <td><%= c.date_of_service || '—' %></td>
-            <td><% if (c.section) { %><span class="badge section-<%= c.section %>"><%= c.category_name %></span><% } else { %>—<% } %></td>
+            <td><% if (c.section) { %><span class="badge section-<%= c.section.replace(/\s+/g, '-') %>"><%= c.category_name %></span><% } else { %>—<% } %></td>
             <td><%= c.patient_initials || '—' %></td>
             <td><%= c.age || '—' %></td>
             <td><%= c.procedure_text || '—' %></td>

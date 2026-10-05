@@ -135,6 +135,31 @@ const defaultCategories = [
   ['Gynecologic Oncology', 'Gynecology', 0],
   ['Family Planning (Contraception/Abortion Care)', 'Gynecology', 0],
   ['Reproductive Endocrinology / Infertility', 'Gynecology', 0],
+  // Office Practice: ABOG's third case-list portion (alongside Obstetrics
+  // and Gynecology). Per indirect research (abog.org is unreachable from
+  // this environment; findings are via search-engine snippets of ABOG's
+  // own case-list instructions page plus third-party board-prep sites —
+  // not a direct read of the current bulletin): the requirement is a
+  // minimum of 30 and maximum of 40 total Office Practice patients, no
+  // more than 2 patients per category, and it is not necessary to fill
+  // every category. The minimum_count of 2 below represents that
+  // per-category cap (not a "minimum to reach"), reusing the existing
+  // progress-bar UI to show "how close to the cap" instead. Verify these
+  // category names and the 30/40/2 figures against your current ABOG
+  // Bulletin — some were lower-confidence research findings, flagged as
+  // such, and these numbers change in ABOG's yearly bulletin.
+  ['Preventive Care & Health Maintenance', 'Office Practice', 2],
+  ['Lifestyle Counseling (smoking, obesity, diet, exercise, substance use)', 'Office Practice', 2],
+  ['Sexual Dysfunction', 'Office Practice', 2],
+  ['Family Planning / Contraception Counseling (Office)', 'Office Practice', 2],
+  ['Preconception Evaluation, Prenatal & Genetic Diagnosis', 'Office Practice', 2],
+  ['Geriatric Care', 'Office Practice', 2],
+  ['Endocrine Disease (diabetes, thyroid, adrenal)', 'Office Practice', 2],
+  ['Major Medical Disease (cardiopulmonary, GI, hypertension)', 'Office Practice', 2],
+  ['Minor Medical Disease (headache, back pain, IBS, etc.)', 'Office Practice', 2],
+  ['Medical Management of Ectopic Pregnancy', 'Office Practice', 2],
+  ['Psychiatric Illness (depression, eating disorders, etc.)', 'Office Practice', 2],
+  ['Hypercholesterolemia & Dyslipidemia Management', 'Office Practice', 2],
   ['Other', 'Other', 0],
 ];
 

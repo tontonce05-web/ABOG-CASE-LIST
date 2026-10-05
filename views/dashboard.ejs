@@ -8,7 +8,10 @@
     <p class="subtitle">Collection period: <%= collectionStart %> to <%= collectionEnd %> · <%= totalCases %> case<%= totalCases === 1 ? '' : 's' %> logged</p>
 
     <% bySection.forEach(function(group) { %>
-      <div class="section-header"><h2><%= group.section %></h2></div>
+      <div class="section-header"><h2><%= group.section %><%= group.section === 'Office Practice' ? ' (' + group.sectionTotal + ' total)' : '' %></h2></div>
+      <% if (group.section === 'Office Practice') { %>
+        <p class="section-note">Per research (not a direct bulletin read — verify against your current ABOG Bulletin): minimum 30, maximum 40 total Office Practice patients, no more than 2 per category, and not every category needs an entry. Each square's "/2" below is that per-category cap, not a minimum.</p>
+      <% } %>
       <div class="progress-grid">
         <% group.items.forEach(function(item) { %>
           <div class="progress-item">

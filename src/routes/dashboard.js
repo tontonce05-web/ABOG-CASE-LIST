@@ -20,10 +20,14 @@ router.get('/', (req, res) => {
   }));
 
   const sections = [...new Set(categories.map((c) => c.section))];
-  const bySection = sections.map((section) => ({
-    section,
-    items: categoryProgress.filter((c) => c.section === section),
-  }));
+  const bySection = sections.map((section) => {
+    const items = categoryProgress.filter((c) => c.section === section);
+    return {
+      section,
+      items,
+      sectionTotal: items.reduce((sum, c) => sum + c.count, 0),
+    };
+  });
 
   const totalCases = db.prepare('SELECT COUNT(*) AS c FROM cases').get().c;
   const recentCases = db
